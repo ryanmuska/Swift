@@ -1,0 +1,88 @@
+*control flow
+
+
+CHAPTER 01
+==========
+
+* Statements are not required to end in a semicolon ;
+
+* Providing a value at the point when you declare a const/var allows the compiler to infer its type, thus:
+	* Create a const value using the ‘let’ keyword
+	* Create a variable using the ‘var’ keyword
+  NOTE: type inference will default floating-point values to type Double
+
+* You may, however, explicitly define your data types as well:
+	* let explicitDouble: Double = 70.7
+
+* Values are never implicitly converted between types, so you must explicitly cast when needed.
+  Create an instance of the destination type and cast as you would in Java/C++:
+	let label = “The width is “
+	let width = 94
+	let widthLabel = label + String(width)
+
+* You can also inline values into a string, by enclosing the variable name in (parens) and preceding it with a \
+  as in:  \(someVar)  or   \(apples + oranges)
+
+* Three double-quotes “”” mark the beginning and end of a multi-line string. You can include “ single quotes
+  within such a string without escape sequences if desired. The leading whitespace on each of these lines will
+  be removed so long as it matches the leading whitespace of the final line
+
+* Dictionaries and arrays are created using brackets, and look like this when the values are known:
+	* let anArray = [“apple”, “orange”, “banana”]
+
+	* var dictionary = [
+		“keyOne” : “valueOne”,
+	 	“keyTwo” : “valueTwo”
+	]
+
+	NOTE to create an EMPTY array or dictionary, you need to use the initializer syntax where you specify
+	the data type in the brackets and follow it with empty parens:
+		* var emptyArray = [String]()
+		* var emptyDict = [String : Float]()
+
+	NOTE when the data types can be inferred, you can write empty arrays and dictionaries as such:
+		* var emptyArray = []
+		* var emptyDict = [:]
+
+* LOOPS and CONTROL FLOW:
+	if, switch, for-in, repeat-while, while
+	
+	The parens around the condition are optional, but the { braces } around the body are required
+	for item in shoppingList { . . . }
+
+
+let
+  creates a constant
+
+var
+  creates a variable
+
+\()
+  include (in parens) variables and/or calculations directly into a string
+
+“””
+  three double-quotes mark the beginning and end of a string that takes up multiple lines of code,
+  within which you can include “ single quotes without escape sequences if desired.
+  any leading whitespace on each line is removed as long as it matches the whitespace of the last double quoted line
+
+[]
+  encloses the contents of an array or dictionary.
+  elements are accessed by index or key
+
+
+
+
+
+
+
+* Exercises from Chapter 01:
+	1.) Create a constant with an explicit type of ‘Float’ and a value of 4
+	2.) Given:
+		let label = “The width is “
+		let width = 94
+		let widthLabel = label + String(width)
+	    Remove the conversion to String from the last line.
+	    What error do you get?
+	3.) Use \() to include a floating-point calculation and a person’s name into a string
+	4.) 
+		

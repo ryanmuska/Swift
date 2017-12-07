@@ -19,6 +19,7 @@ CHAPTER 01
 	let label = “The width is “
 	let width = 94
 	let widthLabel = label + String(width)
+	*NOTE:* Both (type)value and type(value) are acceptable
 
 * You can also inline values into a string, by enclosing the variable name in (parens) and preceding it with a \
   as in:  \(someVar)  or   \(apples + oranges)
@@ -51,6 +52,26 @@ CHAPTER 01
 	for item in shoppingList { . . . }
 
 
+* Swift has optional values. You create an optional by making an explicit declaration with ? after the type:
+	var optionalString: String? = “Some string.”
+	var optionalThing: String? = nil
+
+* null is replaced by nil.
+
+* You can use if and let together to test for optional values:
+	var optionalName: String? = “Billy Bob”;
+	if let name = optionalName {
+	  // do something
+	}
+
+	Here, if optionalName was nil, the if evaluates to false, so the { body } is skipped.
+
+* Switches don’t require a break statement for each case.
+  They also don’t have fallthrough, so if you want to simulate that, just separate the different cases with a comma
+
+
+
+
 let
   creates a constant
 
@@ -68,6 +89,9 @@ var
 []
   encloses the contents of an array or dictionary.
   elements are accessed by index or key
+
+nil
+  basically null
 
 
 

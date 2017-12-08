@@ -140,6 +140,11 @@ CHAPTER 01
 	// access the ‘sum’ field of the tuple, ‘something’:
 	print(something.sum);
 	print(something[2]);
+
+  GOT A FUNCTION THAT’S SO LONG IT SHOULD BE MULTIPLE FUNCTIONS?
+  just nest some functions! Inner functions have access to variables from the function within which they are declared.
+
+  FUNCTIONS ARE “FIRST-CLASS TYPES” so they can return other functions or take other functions are arguments.
   
 
 
@@ -171,6 +176,11 @@ let
 
 nil
   basically null
+
+“tuple”
+  not a keyword (not that I’ve noticed, yet)
+  basically a thing that lets you return multiple values from a function.
+  fields accessible by name or by index.
 
 var
   creates a variable

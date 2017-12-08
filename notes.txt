@@ -147,6 +147,44 @@ CHAPTER 01
   FUNCTIONS ARE “FIRST-CLASS TYPES” so they can return other functions or take other functions are arguments.
   
 
+* OBJECTS / CLASSES:
+	Well, here’s an example of a class called “Square” that inherits “NamedShape”
+	Notice how the constructors (init) are used, and how we call the super’s init() from the subclass’ init():
+
+
+	class NamedShape {
+	  var name: String;
+	  var numberOfSides: Int = 0;
+
+	  init(name: String) {
+ 	    self.name = name;
+	  }
+	}
+
+	class Square : NamedShape {
+	  var sideLength: Double;
+
+	  init(name: String, sideLength: Double) {
+	    self.sideLength = sideLength;	// assign the value specific to this class
+	    super.init(name: name);		// call super constructor
+	    numberOfSides = 4;		// now that we’ve supered, we can assign numberOfSides
+	  }
+	}
+
+
+	Properties of a class can be simple properties that are stored, like the examples above.
+	They can also be complex with getters and setters. In this case, the property looks, itself, like an object:
+
+	class EquilateralTriangle {
+	  // init()
+	  // random simple properties
+	  var perimeter: Double {
+	    get { return 3.0 * sideLength; }
+	    set { sideLength = newValue / 3.0; }
+	  }
+	}
+
+
 
 
 \()
@@ -167,6 +205,16 @@ CHAPTER 01
 0...N
   use with a for-in loop to set a number of iterations up to and including N
 
+class
+  indicates that the following body is a class declaration
+  create an instance of your class by calling its constructor
+  vars, consts, and funcs as members of the class are created in the same way as usual.
+  access functions and properties with dot-notation
+  init() is a function that acts as the constructor, and ‘self’ replaces ‘this’ in this context.
+  deinit() for cleanup when destroying an object
+  establish inheritance using  : superclass  when declaring a class
+  override a superclass method with the ‘override’ keyword
+
 func
   signifies that you’re declaring a function.
   func functionName(label: Type, label: Type…) -> ReturnType { . . . }
@@ -176,6 +224,10 @@ let
 
 nil
   basically null
+
+override
+  overrides a superclass function
+  override func functionName(params)
 
 “tuple”
   not a keyword (not that I’ve noticed, yet)

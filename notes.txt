@@ -124,6 +124,22 @@ CHAPTER 01
 	}
 
 	greet(“BillyBob”, on: “Tuesday”);
+
+  PASSING AN ARRAY to a function? The type for the label should be the datatype in [brackets], like:  scores: [Int]
+
+  WANT TO RETURN MULTIPLE VALUES? Use a tuple, whose values can be referred to by name or index.
+  For example, how about a function that returns a tuple with 3 values, min, max, and sum:
+	func returnsTuple(scores: [Int]) -> (min: Int, max: Int, sum: Int) {
+	  // do stuff
+	  return (min, max, sum);
+	}
+
+	// get a tuple from the returnsTuple() function
+	let something = returnsTuple(scores: [3, 6, 3, 9, 0, 9, 10]);
+
+	// access the ‘sum’ field of the tuple, ‘something’:
+	print(something.sum);
+	print(something[2]);
   
 
 

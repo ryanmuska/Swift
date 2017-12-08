@@ -95,8 +95,36 @@ CHAPTER 01
   They also don’t have fallthrough, so if you want to simulate that, just separate the different cases with a comma
 
 
+* Functions are declared *basically* the same way, but the syntax is a little more involved.
+  Example:
+	// create a function
+	func funcName(paramName: type, paramName2: type) -> returnType { . . . }
 
+	// call a function
+	funcName(paramName: val, paramName2: val);
 
+  The parameters each need a name and a type, as usual, in the Swift style such as: (person: String, age: Int)
+  When you call the function, you’ll need to provide both the parameter label and the value.
+  By default the function uses the the parameter names as the labels, but by providing an additional label you can
+    use those instead. By providing an _ underscore, you can use no label at all.
+  Keep in mind, in the FUNCTION BODY you’ll refer to them as their default label, but when calling the function you’ll
+  use either the default label, the custom label, or no label, depending on how you’ve created your function.
+  Here’s the differences in action:
+
+	// DEFAULT LABELS
+	func greet(person: String, day: String) -> String {
+	  return “Hello \(person), today is \(day)!”;
+	}
+
+	greet(person: “BillyBob”, day: “Tuesday”);
+
+	// CUSTOM / NO LABELS
+	func greet(_ person: String, on day: String) -> String {
+	  return “Hello, \(person), today is \(day)!”;
+	}
+
+	greet(“BillyBob”, on: “Tuesday”);
+  
 
 
 
@@ -117,6 +145,10 @@ CHAPTER 01
 
 0...N
   use with a for-in loop to set a number of iterations up to and including N
+
+func
+  signifies that you’re declaring a function.
+  func functionName(label: Type, label: Type…) -> ReturnType { . . . }
 
 let
   creates a constant

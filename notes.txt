@@ -51,6 +51,31 @@ CHAPTER 01
 	The parens around the condition are optional, but the { braces } around the body are required
 	for item in shoppingList { . . . }
 
+	if (condition) { . . . } 
+		* condition MUST be boolean, C++ tricks don’t work here
+
+	if let newVar = someOptionalVar { . . . }
+		* if someOptionalVar was nil, the body is skipped. this is one way to work with optionals
+		* you could also just check for if (someOptionalar != nil) { . . . }
+
+	for item in collection { . . . }
+
+	for i in 0..<4 { // gives 3 iterations }
+
+	for i in 0...4 { // gives 4 iterations }
+
+	switch something {
+	  case “value one” :
+		print(“first case”);
+	  case “value two”, “value three” :
+		print(“simulated fall-through”);
+	  default :
+		print(“default case”);
+	}
+	
+
+	repeat { . . . } while (condition)
+
 
 * Swift has optional values. You create an optional by making an explicit declaration with ? after the type:
 	var optionalString: String? = “Some string.”
@@ -72,11 +97,8 @@ CHAPTER 01
 
 
 
-let
-  creates a constant
 
-var
-  creates a variable
+
 
 \()
   include (in parens) variables and/or calculations directly into a string
@@ -90,8 +112,22 @@ var
   encloses the contents of an array or dictionary.
   elements are accessed by index or key
 
+0..<N
+  use with a for-in loop to set a number of iterations up to but not including N
+
+0...N
+  use with a for-in loop to set a number of iterations up to and including N
+
+let
+  creates a constant
+
 nil
   basically null
+
+var
+  creates a variable
+
+
 
 
 

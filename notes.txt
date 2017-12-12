@@ -1,5 +1,4 @@
-*control flow
-
+*enumerations and structures
 
 CHAPTER 01
 ==========
@@ -215,6 +214,10 @@ class
   establish inheritance using  : superclass  when declaring a class
   override a superclass method with the ‘override’ keyword
 
+get
+  a “getter” method
+  used in property declarations in class definitions (also see set, willset, didset)
+
 func
   signifies that you’re declaring a function.
   func functionName(label: Type, label: Type…) -> ReturnType { . . . }
@@ -228,6 +231,10 @@ nil
 override
   overrides a superclass function
   override func functionName(params)
+
+set
+  a “setter” method
+  used in property declarations in class defintiions (also see get, willset, didset)
 
 “tuple”
   not a keyword (not that I’ve noticed, yet)

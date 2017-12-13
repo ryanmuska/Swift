@@ -71,6 +71,53 @@ THIS FILE JUST HAS EXAMPLES OF HOW TO DECLARE / INSTANTIATE / CALL THINGS
 	 3.) Explicitly cast ‘as Any’	     :  print(dictName[“key”] as Any)		// Optional(3)
 
 
+*-*-*-*-*-*
+* FOR-IN  *
+*-*-*-*-*-*
+  
+  Not quite what you’re used to. Works on a collection or a specified range.
+  Do not use parens to set off the conditions of the loop.
+
+  ON COLLECTIONS:
+	for item in collection { . . . }
+	
+	var fruitsArray = [“banana”, “apple”, “tomato”, “peach”];
+	for fruit in fruits {
+	  print(fruit);
+	}
+
+  ON A RANGE (NOT INCLUSIVE)
+	for i in 0..<10 { . . . }   // 0 to 9
+
+  ON A RANGE (INCLUSIVE)
+	for i in 0...10 { . . . }   // 0 to 10
+
+*-*-*-*
+* IF  *
+*-*-*-*
+
+  The usual, but the condition MUST BE a boolean, and parens are optional but { braces } are NOT:
+
+  if condition { . . . }
+
+  if (condition) { . . . }
+
+
+*-*-*-*-*-*
+* IF-LET  *
+*-*-*-*-*-*
+
+  A method of testing optional values. You may also simply use   if (value != nil) { . . . }
+  If the optional value is nil, it won’t be assigned to the new variable, causing the if condition to result
+    to false, skipping the body:
+
+  if let name = someOptionalVariable { . . . }
+
+  This is the same as
+
+  if (someOptionalVariable != nil) { . . . }
+
+
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 *  INSERT VALUES INTO STRINGS *
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
@@ -78,6 +125,31 @@ THIS FILE JUST HAS EXAMPLES OF HOW TO DECLARE / INSTANTIATE / CALL THINGS
   \(varName)
   \(constName)
   \(some + kind + of + expression)
+
+
+*-*-*-*-*-*-*
+*   LOOPS   *
+*-*-*-*-*-*-*
+
+  See: FOR-IN
+	IF
+	REPEAT-WHILE
+	SWITCH
+	WHILE
+
+
+*-*-*-*-*-*-*
+* OPTIONALS *
+*-*-*-*-*-*-*
+
+  Explicit data type is required
+  Place a ? after the data type
+  You’ll later want to check for nil values when working with these variables.
+  See IF-LET
+
+  var varName: dataType? = value (or, = nil)
+  var optionalInteger: Int? = 8
+  var optionalString: String? = nil
 
 
 *-*-*-*-*-*-*

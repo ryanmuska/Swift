@@ -22,10 +22,76 @@ THIS FILE JUST HAS EXAMPLES OF HOW TO DECLARE / INSTANTIATE / CALL THINGS
   Values are NEVER IMPLICITLY CONVERTED between types
   Use either of the two typical forms:
 
-  (targetType)value
+	(targetType)value
 
-  targetType(value)
+	targetType(value)
 
+
+*-*-*-*-*-*-*
+*  CLASSES  *
+*-*-*-*-*-*-*
+
+  Use the keyword: class
+
+    class ClassName {
+      // instance variables
+      // instance methods
+
+      init(args: dataTypes) {
+ 	 self.varName = argName;
+	 . . .
+      }
+    }
+
+    var someObject = ClassName(anyRequiredArguments);
+
+  —————————————————————————————————————————————————————————————————
+
+  The following are examples of a class and a subclass
+
+  —————————————————————————————————————————————————————————————————
+
+  SIMPLE PROPERTIES
+
+  class Shape {
+    var name: String;
+    var numberOfSides: Int = 0;
+
+    func description() -> String { return “A shape named \(name).”; }
+
+    init(name: String) { self.name = name; }
+  }
+
+  class Square : Shape {
+    var sideLength: Double;
+
+    init(name: String, sideLength: Double) {
+      self.sideLength = sideLength;  // we can assign this value here
+      super.init(name: name);	  // now we call the super constructor
+      numberOfSides = 4;		  // now that we’ve called the super constructor, we can access ‘numberOfSides’
+    }
+
+    override func description() -> String { return “A square named \(name) with side length \(sideLength).”; }
+  }
+
+  var mySquare = Square(name: “My Square”, sideLength: 9.2);  // creates a square
+
+  —————————————————————————————————————————————————————————————————
+
+  COMPLEX PROPERTIES
+  Complex properties require a getter/setter.
+  In this example, when you GET the perimeter value, it is based off of the sideLength value.
+  When you SET the sideLength value, it is again based off of the (newly provided) sideLength value.
+
+	  class EquilateralTriangle {
+	    // any desired simple properties
+  	    // any desired instance methods
+	    // init()
+	    var perimeter: Double {
+	      get { return 3.0 * sideLength; }
+	      set { sideLength = newValue / 3.0; }
+	    }
+	  }
 
 *-*-*-*-*-*-*
 * CONSTANTS *
@@ -37,6 +103,7 @@ THIS FILE JUST HAS EXAMPLES OF HOW TO DECLARE / INSTANTIATE / CALL THINGS
 
 	let constName: dataType = value
 
+  —————————————————————————————————————————————————————————————————
 
   INFERRED (no data type required when value provided)
 
@@ -51,8 +118,12 @@ THIS FILE JUST HAS EXAMPLES OF HOW TO DECLARE / INSTANTIATE / CALL THINGS
     var dictionaryName = [ keyDataType : valueDataType ]()
     var dictionaryName = [ String : Int ]()
 
+  —————————————————————————————————————————————————————————————————
+
   EMPTY, WHEN DATA TYPES ‘CAN’ BE INFERRED
     var dictionaryName = [ : ]
+
+  —————————————————————————————————————————————————————————————————
 
   PREFILLED:
     var dictionaryName = [
@@ -60,8 +131,12 @@ THIS FILE JUST HAS EXAMPLES OF HOW TO DECLARE / INSTANTIATE / CALL THINGS
 	  “keyName” : “value”
     ]
 
+  —————————————————————————————————————————————————————————————————
+
   ADD OR EDIT A KEY / VALUE PAIR:
     dictName[“keyName”] = value
+
+  —————————————————————————————————————————————————————————————————
 
   *** When you print a value, such as a dictionary of [String : Int]
       the value is IMPLICITLY COERCED TO ‘Any’ (Int?)
@@ -86,8 +161,12 @@ THIS FILE JUST HAS EXAMPLES OF HOW TO DECLARE / INSTANTIATE / CALL THINGS
 	  print(fruit);
 	}
 
+  —————————————————————————————————————————————————————————————————
+
   ON A RANGE (NOT INCLUSIVE)
 	for i in 0..<10 { . . . }   // 0 to 9
+
+  —————————————————————————————————————————————————————————————————
 
   ON A RANGE (INCLUSIVE)
 	for i in 0...10 { . . . }   // 0 to 10
@@ -105,17 +184,25 @@ THIS FILE JUST HAS EXAMPLES OF HOW TO DECLARE / INSTANTIATE / CALL THINGS
   When calling the function, you have 3 options for how to specify the arguments, depending on how the function
     was declared.
 
+  —————————————————————————————————————————————————————————————————
+
   BY NAME:
 	func greet(name: String) -> String { . . . }
 	greet(name: “Billy Joe”);
+
+  —————————————————————————————————————————————————————————————————
 
   BY A CUSTOM LABEL:
 	func greet(name person: String) -> { . . . }
 	greet(person: “Billy Bob”);
 
+  —————————————————————————————————————————————————————————————————
+
   WITH NO LABEL (most convenient):
 	func greet(_ name: String) -> { . . . }
 	greet(“Billy Bob Joe”);
+
+  —————————————————————————————————————————————————————————————————
 
   *** PASSING AN ARRAY TO A FUNCTION? After the label, put the array’s data type in [brackets]:
 	func doStuff(values: [Int]) -> Int { . . . }
@@ -139,11 +226,11 @@ THIS FILE JUST HAS EXAMPLES OF HOW TO DECLARE / INSTANTIATE / CALL THINGS
   If the optional value is nil, it won’t be assigned to the new variable, causing the if condition to result
     to false, skipping the body:
 
-  if let name = someOptionalVariable { . . . }
+	  if let name = someOptionalVariable { . . . }
 
   This is the same as
 
-  if (someOptionalVariable != nil) { . . . }
+	  if (someOptionalVariable != nil) { . . . }
 
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*

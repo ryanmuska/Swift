@@ -2,6 +2,18 @@ THIS FILE JUST HAS EXAMPLES OF HOW TO DECLARE / INSTANTIATE / CALL THINGS
 
 
 *-*-*-*-*-*-*
+*  CASTING  *
+*-*-*-*-*-*-*
+
+  Values are NEVER IMPLICITLY CONVERTED between types
+  Use either of the two typical forms:
+
+  (targetType)value
+
+  targetType(value)
+
+
+*-*-*-*-*-*-*
 * CONSTANTS *
 *-*-*-*-*-*-*
 
@@ -15,6 +27,30 @@ THIS FILE JUST HAS EXAMPLES OF HOW TO DECLARE / INSTANTIATE / CALL THINGS
   INFERRED (no data type required when value provided)
 
 	let constName = “Some String”
+
+
+*-*-*-*-*-*-*-*-*
+* DICTIONARIES  *
+*-*-*-*-*-*-*-*-*
+
+  EMPTY:
+    var dictionaryName = [ : ]
+
+  PREFILLED:
+    var dictionaryName = [
+	  “keyName” : “value”,
+	  “keyName” : “value”
+    ]
+
+
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+*  INSERT VALUES INTO STRINGS *
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+
+  \(varName)
+  \(constName)
+  \(some + kind + of + expression)
 
 
 *-*-*-*-*-*-*

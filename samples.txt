@@ -1,6 +1,20 @@
 THIS FILE JUST HAS EXAMPLES OF HOW TO DECLARE / INSTANTIATE / CALL THINGS
 
 
+
+*-*-*-*-*-*-*
+*   ARRAYS  *
+*-*-*-*-*-*-*
+
+  EMPTY, DATA TYPE CANNOT BE INFERRED - requires () parens
+    var arrayName[dataType]()
+    var arrayName[String]();
+
+
+  PREFILLED
+    var arrayName[“value”, “value”, “value”]
+
+
 *-*-*-*-*-*-*
 *  CASTING  *
 *-*-*-*-*-*-*
@@ -33,7 +47,11 @@ THIS FILE JUST HAS EXAMPLES OF HOW TO DECLARE / INSTANTIATE / CALL THINGS
 * DICTIONARIES  *
 *-*-*-*-*-*-*-*-*
 
-  EMPTY:
+  EMPTY, WHEN DATA TYPES CANNOT BE INFERRED - requires () parens
+    var dictionaryName = [ keyDataType : valueDataType ]()
+    var dictionaryName = [ String : Int ]()
+
+  EMPTY, WHEN DATA TYPES ‘CAN’ BE INFERRED
     var dictionaryName = [ : ]
 
   PREFILLED:
@@ -42,6 +60,15 @@ THIS FILE JUST HAS EXAMPLES OF HOW TO DECLARE / INSTANTIATE / CALL THINGS
 	  “keyName” : “value”
     ]
 
+  ADD OR EDIT A KEY / VALUE PAIR:
+    dictName[“keyName”] = value
+
+  *** When you print a value, such as a dictionary of [String : Int]
+      the value is IMPLICITLY COERCED TO ‘Any’ (Int?)
+      You have 3 options to resolve this:
+	 1.) Force unwrap with an exclamation ! :  print(dictName[“key”]!)			// 3
+	 2.) Provide a default value with ??    :  print(dictName[“key”] ?? defaultValue)	// 3
+	 3.) Explicitly cast ‘as Any’	     :  print(dictName[“key”] as Any)		// Optional(3)
 
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*

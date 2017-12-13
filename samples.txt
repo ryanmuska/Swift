@@ -15,6 +15,7 @@ THIS FILE JUST HAS EXAMPLES OF HOW TO DECLARE / INSTANTIATE / CALL THINGS
     var arrayName[“value”, “value”, “value”]
 
 
+
 *-*-*-*-*-*-*
 *  CASTING  *
 *-*-*-*-*-*-*
@@ -25,6 +26,7 @@ THIS FILE JUST HAS EXAMPLES OF HOW TO DECLARE / INSTANTIATE / CALL THINGS
 	(targetType)value
 
 	targetType(value)
+
 
 
 *-*-*-*-*-*-*
@@ -93,6 +95,8 @@ THIS FILE JUST HAS EXAMPLES OF HOW TO DECLARE / INSTANTIATE / CALL THINGS
 	    }
 	  }
 
+
+
 *-*-*-*-*-*-*
 * CONSTANTS *
 *-*-*-*-*-*-*
@@ -110,18 +114,14 @@ THIS FILE JUST HAS EXAMPLES OF HOW TO DECLARE / INSTANTIATE / CALL THINGS
 	let constName = “Some String”
 
 
+
 *-*-*-*-*-*-*-*-*
 * DICTIONARIES  *
 *-*-*-*-*-*-*-*-*
 
-  EMPTY, WHEN DATA TYPES CANNOT BE INFERRED - requires () parens
+  EMPTY, DATA TYPES CANNOT BE INFERRED - requires () parens
     var dictionaryName = [ keyDataType : valueDataType ]()
     var dictionaryName = [ String : Int ]()
-
-  —————————————————————————————————————————————————————————————————
-
-  EMPTY, WHEN DATA TYPES ‘CAN’ BE INFERRED
-    var dictionaryName = [ : ]
 
   —————————————————————————————————————————————————————————————————
 
@@ -129,6 +129,12 @@ THIS FILE JUST HAS EXAMPLES OF HOW TO DECLARE / INSTANTIATE / CALL THINGS
     var dictionaryName = [
 	  “keyName” : “value”,
 	  “keyName” : “value”
+    ]
+
+    var fruitTotals = [
+	“banana” : 7,
+	“apple” : 3,
+	“tomato” : 12
     ]
 
   —————————————————————————————————————————————————————————————————
@@ -141,9 +147,16 @@ THIS FILE JUST HAS EXAMPLES OF HOW TO DECLARE / INSTANTIATE / CALL THINGS
   *** When you print a value, such as a dictionary of [String : Int]
       the value is IMPLICITLY COERCED TO ‘Any’ (Int?)
       You have 3 options to resolve this:
+
 	 1.) Force unwrap with an exclamation ! :  print(dictName[“key”]!)			// 3
+		* this is not nil-safe
+
 	 2.) Provide a default value with ??    :  print(dictName[“key”] ?? defaultValue)	// 3
+		* this is nil-safe
+		* uses defaultValue provided when key-value is nil
+
 	 3.) Explicitly cast ‘as Any’	     :  print(dictName[“key”] as Any)		// Optional(3)
+
 
 
 *-*-*-*-*-*
@@ -170,6 +183,7 @@ THIS FILE JUST HAS EXAMPLES OF HOW TO DECLARE / INSTANTIATE / CALL THINGS
 
   ON A RANGE (INCLUSIVE)
 	for i in 0...10 { . . . }   // 0 to 10
+
 
 
 *-*-*-*-*-*-*
@@ -207,6 +221,8 @@ THIS FILE JUST HAS EXAMPLES OF HOW TO DECLARE / INSTANTIATE / CALL THINGS
   *** PASSING AN ARRAY TO A FUNCTION? After the label, put the array’s data type in [brackets]:
 	func doStuff(values: [Int]) -> Int { . . . }
 
+
+
 *-*-*-*
 * IF  *
 *-*-*-*
@@ -216,6 +232,7 @@ THIS FILE JUST HAS EXAMPLES OF HOW TO DECLARE / INSTANTIATE / CALL THINGS
   if condition { . . . }
 
   if (condition) { . . . }
+
 
 
 *-*-*-*-*-*
@@ -233,6 +250,7 @@ THIS FILE JUST HAS EXAMPLES OF HOW TO DECLARE / INSTANTIATE / CALL THINGS
 	  if (someOptionalVariable != nil) { . . . }
 
 
+
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 *  INSERT VALUES INTO STRINGS *
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
@@ -240,6 +258,7 @@ THIS FILE JUST HAS EXAMPLES OF HOW TO DECLARE / INSTANTIATE / CALL THINGS
   \(varName)
   \(constName)
   \(some + kind + of + expression)
+
 
 
 *-*-*-*-*-*-*
@@ -251,6 +270,7 @@ THIS FILE JUST HAS EXAMPLES OF HOW TO DECLARE / INSTANTIATE / CALL THINGS
 	*REPEAT-WHILE
 	*SWITCH
 	*WHILE
+
 
 
 *-*-*-*-*-*-*
@@ -265,6 +285,7 @@ THIS FILE JUST HAS EXAMPLES OF HOW TO DECLARE / INSTANTIATE / CALL THINGS
   var varName: dataType? = value (or, = nil)
   var optionalInteger: Int? = 8
   var optionalString: String? = nil
+
 
 
 *-*-*-*-*-*-*
@@ -286,6 +307,7 @@ THIS FILE JUST HAS EXAMPLES OF HOW TO DECLARE / INSTANTIATE / CALL THINGS
 
 	print(result.max);  // prints the max value off the tuple
 	print(result[1]);   // prints the max value off the tuple
+
 
 
 *-*-*-*-*-*-*

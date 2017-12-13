@@ -181,6 +181,27 @@ THIS FILE JUST HAS EXAMPLES OF HOW TO DECLARE / INSTANTIATE / CALL THINGS
 
 
 *-*-*-*-*-*-*
+*  TUPLES   *
+*-*-*-*-*-*-*
+
+  Allow you to return multiple values from a function.
+  Refer to the values stored in the tuple by name OR index.
+  Suppose a function that returns 3 Int values: min, max, sum:
+
+	func returnTuple(scores: [Int]) -> (min: Int, max: Int, sum: Int) {
+	  // . . .
+	  // logic for assigning/computing min, max, and sum goes here
+	  // . . .
+	  return (min, max, sum)
+	}
+
+	var result = returnTuple(scores: myScoresArray);
+
+	print(result.max);  // prints the max value off the tuple
+	print(result[1]);   // prints the max value off the tuple
+
+
+*-*-*-*-*-*-*
 * VARIABLES *
 *-*-*-*-*-*-*
 

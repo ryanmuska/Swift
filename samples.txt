@@ -92,6 +92,34 @@ THIS FILE JUST HAS EXAMPLES OF HOW TO DECLARE / INSTANTIATE / CALL THINGS
   ON A RANGE (INCLUSIVE)
 	for i in 0...10 { . . . }   // 0 to 10
 
+
+*-*-*-*-*-*-*
+* FUNCTIONS *
+*-*-*-*-*-*-*
+
+  Use the keyword: func
+
+  func functionName(paramNameOne: dataType, paramNameTwo: dataType) -> returnType { . . . }
+
+  Within the function body, you’ll refer to the params by name.
+  When calling the function, you have 3 options for how to specify the arguments, depending on how the function
+    was declared.
+
+  BY NAME:
+	func greet(name: String) -> String { . . . }
+	greet(name: “Billy Joe”);
+
+  BY A CUSTOM LABEL:
+	func greet(name person: String) -> { . . . }
+	greet(person: “Billy Bob”);
+
+  WITH NO LABEL (most convenient):
+	func greet(_ name: String) -> { . . . }
+	greet(“Billy Bob Joe”);
+
+  *** PASSING AN ARRAY TO A FUNCTION? After the label, put the array’s data type in [brackets]:
+	func doStuff(values: [Int]) -> Int { . . . }
+
 *-*-*-*
 * IF  *
 *-*-*-*
@@ -133,9 +161,9 @@ THIS FILE JUST HAS EXAMPLES OF HOW TO DECLARE / INSTANTIATE / CALL THINGS
 
   See: FOR-IN
 	IF
-	REPEAT-WHILE
-	SWITCH
-	WHILE
+	*REPEAT-WHILE
+	*SWITCH
+	*WHILE
 
 
 *-*-*-*-*-*-*

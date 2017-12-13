@@ -1,0 +1,33 @@
+THIS FILE JUST HAS EXAMPLES OF HOW TO DECLARE / INSTANTIATE / CALL THINGS
+
+
+*-*-*-*-*-*-*
+* CONSTANTS *
+*-*-*-*-*-*-*
+
+  Use the keyword: let
+
+  EXPLICIT (data type required only when value is not provided)
+
+	let constName: dataType = value
+
+
+  INFERRED (no data type required when value provided)
+
+	let constName = “Some String”
+
+
+*-*-*-*-*-*-*
+* VARIABLES *
+*-*-*-*-*-*-*
+
+  Use the keyword: var
+
+  EXPLICIT (data type required only when value is not provided)
+
+	var varName: dataType = value
+
+
+  INFERRED (no data type required when value provided)
+
+	var varName = 7

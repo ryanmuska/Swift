@@ -318,7 +318,7 @@ See the following:
   
   You’ll later want to check for `nil` values when working with these variables.
   
-  See (IF-LET)[#IF-LET]
+  See [IF-LET](#if-let)
 
 ```swift
   var varName: dataType? = value (or, = nil)

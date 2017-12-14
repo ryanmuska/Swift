@@ -7,7 +7,10 @@ As noted above, I've only just begun to work with the Swift language, so feel fr
 * feel like there are important details missing from any topics
 * have an example you'd like to share
 * want to point out any common pit-falls for people in the beginning stages of learning iOS development
+* want to suggest additional reference material (books, documentation, tutorials, videos, etc.)
 * or for any other reason
+
+This document will be updated regularly as I continue to work through different references including, but not limited to, the sources listed above.
 
 ---
 
@@ -348,7 +351,7 @@ See the following:
   See [IF-LET](#if-let)
 
 ```swift
-  var varName: dataType? = value (or, = nil)
+  var varName: dataType? = value      // (or, = nil)
   var optionalInteger: Int? = 8
   var optionalString: String? = nil
 ```

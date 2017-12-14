@@ -2,6 +2,25 @@
 This is a quick reference for **Swift** things. The examples are current as of Swift 4.
 All of the sample content is based on the **[Swift Tour](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/GuidedTour.html#//apple_ref/doc/uid/TP40014097-CH2)**, the **[Swift Language Guide](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/TheBasics.html#//apple_ref/doc/uid/TP40014097-CH5-ID309)**, and the **[Swift Language Reference](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AboutTheLanguageReference.html#//apple_ref/doc/uid/TP40014097-CH29-ID345)** located at [https://developer.apple.com/](https://developer.apple.com/).
 
+---
+
+# Contents
+
+[Arrays](#arrays)</br>
+[Casting](#casting)</br>
+[Classes](#classes)</br>
+[Constants](#constants)</br>
+[Control Flow](#control-flow)</br>
+[Dictionaries](#dictionaries)<br/>
+[For-In](#for-in)</br>
+[Functions](#functions)</br>
+[If](#if)</br>
+[If-Let](#if-let)</br>
+[Insert Values Into Strings](#insert-values-into-strings)</br>
+[Optionals](#optionals)</br>
+[Tuples](#tuples)</br>
+[Variables](#variables)</br>
+
 
 ---
 
@@ -134,6 +153,16 @@ All of the sample content is based on the **[Swift Tour](https://developer.apple
 ```swift
     let constName = “Some String”
 ```
+
+
+## CONTROL FLOW
+
+See the following:
+* [FOR-IN](#for-in)
+* [IF](#if)
+* REPEAT-WHILE
+* SWITCH
+* WHILE
 
 
 ## DICTIONARIES
@@ -297,16 +326,6 @@ All of the sample content is based on the **[Swift Tour](https://developer.apple
   print("This string has a constant's value: \(constName).")
   print("This string adds \(some + kind + of + expression).");
 ```
-
-
-## LOOPS
-
-See the following:
-* FOR-IN
-* IF
-* REPEAT-WHILE
-* SWITCH
-* WHILE
 
 
 

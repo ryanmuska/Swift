@@ -241,7 +241,7 @@ All of the sample content is based on the **[Swift Tour](https://developer.apple
 
 * BY A CUSTOM LABEL:
 ```swift
-    func greet(name person: String) -> { . . . }
+    func greet(person name: String) -> { . . . }
     greet(person: “Billy Bob”);
 ```
 

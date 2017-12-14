@@ -126,9 +126,9 @@ This document will be updated regularly as I continue to work through different 
 
   Complex properties use getters and setters.
   
-  In this example, when you **_GET_** the perimeter value, it is based off of the `sideLength` value.
+  In this example, when you **_GET_** the `perimeter` value, it is based off of the `sideLength` value.
   
-  When you **_SET_** the `sideLength` value, it is again based off of the (newly provided) `sideLength` value.
+  When you **_SET_** the `perimeter` value, it has a side effect of updating the `sideLength` value.
   
 ```swift
     class EquilateralTriangle {

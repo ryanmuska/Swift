@@ -171,8 +171,8 @@ All of the sample content is based on the **[Swift Tour](https://developer.apple
     dictName[“keyName”] = value
 ```
 
-> When you print a value, such as a dictionary of [String : Int] the value is IMPLICITLY COERCED TO 
-> ‘Any’ (Int?). You have 3 options to resolve this:
+> When you print a value, such as a dictionary of `[String : Int]` the value is IMPLICITLY COERCED TO 
+> `‘Any’ (Int?)`. You have 3 options to resolve this:
 >
 > 1.) Force unwrap with an exclamation !
 ```swift
@@ -205,9 +205,9 @@ All of the sample content is based on the **[Swift Tour](https://developer.apple
     }
     
     // output: banana
-    	       apple
-	       tomato
-	       peach
+    //	       apple
+    //         tomato
+    //         peach
 ```
 
 * **On a range** (**_not_** inclusive)
@@ -270,9 +270,11 @@ All of the sample content is based on the **[Swift Tour](https://developer.apple
 
 ## IF-LET
 
-  A method of testing optional values. You may also simply use   if (value != nil) { . . . }
-  
-  If the optional value is nil, it won’t be assigned to the new variable, causing the if condition to result to false, skipping the body:
+  A method of testing optional values. You may also simply use   
+  ```swift
+      if (value != nil) { . . . }
+  ```
+  If the optional value is `nil`, it won’t be assigned to the new variable, causing the if condition to result to false, skipping the body:
 
 ```swift
     if let name = someOptionalVariable { . . . }
@@ -299,15 +301,12 @@ All of the sample content is based on the **[Swift Tour](https://developer.apple
 
 ## LOOPS
 
-  See:  FOR-IN
-  
-	IF
-
-	*REPEAT-WHILE
-	
-	*SWITCH
-	
-	*WHILE
+See the following:
+* FOR-IN
+* IF
+* REPEAT-WHILE
+* SWITCH
+* WHILE
 
 
 
@@ -315,11 +314,11 @@ All of the sample content is based on the **[Swift Tour](https://developer.apple
 
   Explicit data type is required
   
-  Place a ? after the data type
+  Place a `?` after the data type
   
-  You’ll later want to check for nil values when working with these variables.
+  You’ll later want to check for `nil` values when working with these variables.
   
-  See IF-LET
+  See (IF-LET)[#IF-LET]
 
 ```swift
   var varName: dataType? = value (or, = nil)
@@ -355,12 +354,14 @@ All of the sample content is based on the **[Swift Tour](https://developer.apple
   Use the keyword: **var**
 
 * **EXPLICIT** 
+
    Data type required only when value is not provided
 ```swift
     var varName: dataType = value
 ```
 
 * **INFERRED** 
+
    No data type required when value provided
 ```swift
     var varName = 7

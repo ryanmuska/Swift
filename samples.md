@@ -6,7 +6,7 @@ As noted above, I've only just begun to work with the Swift language, so feel fr
 * find any errors
 * feel like there are important details missing from any topics
 * have an example you'd like to share
-* want to point out any common pit-falls for people in the beginning stages of learning iOS development
+* want to point out any common pitfalls for people in the beginning stages of learning iOS development
 * want to suggest additional reference material (books, documentation, tutorials, videos, etc.)
 * or for any other reason
 

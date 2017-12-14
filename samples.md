@@ -94,7 +94,7 @@ All of the sample content is based on the **[Swift Tour](https://developer.apple
 
 * **COMPLEX PROPERTIES**
 
-  Complex properties use a getters and setters.
+  Complex properties use getters and setters.
   
   In this example, when you **_GET_** the perimeter value, it is based off of the `sideLength` value.
   

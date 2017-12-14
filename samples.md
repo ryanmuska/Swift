@@ -1,6 +1,13 @@
 # Samples.md
-This is a quick reference for **Swift** things. The examples are current as of Swift 4.
+This is meant to be a quick look-up reference document for Apple's **Swift** programming language as I set out to begin gaining experience with iOS development. This document is not meant to be exhaustive and will not dive too deeply into concepts common to other languages such as C/C++, C#/Java, as these are the languages I work with on an almost daily basis. The examples and content are current as of Swift 4.
 All of the sample content is based on the **[Swift Tour](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/GuidedTour.html#//apple_ref/doc/uid/TP40014097-CH2)**, the **[Swift Language Guide](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/TheBasics.html#//apple_ref/doc/uid/TP40014097-CH5-ID309)**, and the **[Swift Language Reference](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AboutTheLanguageReference.html#//apple_ref/doc/uid/TP40014097-CH29-ID345)** located at [https://developer.apple.com/](https://developer.apple.com/).
+
+As noted above, I've only just begun to work with the Swift language, so feel free to contribute if you:
+* find any errors
+* feel like there are important details missing from any topics
+* have an example you'd like to share
+* want to point out any common pit-falls for people in the beginning stages of learning iOS development
+* or for any other reason
 
 ---
 
@@ -65,7 +72,8 @@ All of the sample content is based on the **[Swift Tour](https://developer.apple
 
 ## CLASSES
 
-  Use the keyword: **class**
+  Use the keyword: **class**</br>
+  Use the keyword: **self**, not `this`
 
 ```swift
     class ClassName {
@@ -81,7 +89,7 @@ All of the sample content is based on the **[Swift Tour](https://developer.apple
     var someObject = ClassName(anyRequiredArguments);
 ```
 
-  The following are examples of a class and a subclass
+  The following are examples of a class and a subclass. The first example includes classes with **simple properites** only, while the second example has a class with a **complex property**.
 
 
  * **SIMPLE PROPERTIES**
@@ -270,13 +278,13 @@ See the following:
 
 * BY A CUSTOM LABEL:
 ```swift
-    func greet(person name: String) -> { . . . }
+    func greet(person name: String) -> String { . . . }
     greet(person: “Billy Bob”);
 ```
 
 * WITH NO LABEL (most convenient):
 ```swift
-    func greet(_ name: String) -> { . . . }
+    func greet(_ name: String) -> String { . . . }
     greet(“Billy Bob Joe”);
 ```
 
@@ -350,9 +358,11 @@ See the following:
 
   Allow you to return multiple values from a function.
   
-  Refer to the values stored in the tuple by name OR index.
+  An empty tuple `()` can also be used to indicate `Void`
   
-  Suppose a function that returns 3 Int values: min, max, sum:
+  Refer to the values stored in a tuple by name OR index.
+  
+  Suppose a function that returns 3 `Int` values: min, max, sum:
  ```swift
     func returnTuple(scores: [Int]) -> (min: Int, max: Int, sum: Int) {
       // . . .

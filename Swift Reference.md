@@ -472,8 +472,8 @@ See the following:
 
   ```swift
       struct Card {
-        var rank: Rank
-        var suit: Suit
+        var rank: Rank		// assumes you’ve made the enum: Rank
+        var suit: Suit		// assumes you’ve made the enum: Suit
 
         func description() -> String {
           return “The \(rank.description) of \(suit.description).”

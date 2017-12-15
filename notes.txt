@@ -186,6 +186,8 @@ CHAPTER 01
 
 
 
+
+
 \()
   include (in parens) variables and/or calculations directly into a string
 
@@ -213,6 +215,12 @@ class
   deinit() for cleanup when destroying an object
   establish inheritance using  : superclass  when declaring a class
   override a superclass method with the ‘override’ keyword
+
+enum
+  raw values default to start at 0, but override this by assigning an explicity initial value
+  use “case” to assign one or more enum values
+  case values are actual values, not just names for values, so in cases where there isn’t a “meaningful” rawValue
+    type, you don’t have to provide one
 
 get
   a “getter” method

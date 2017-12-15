@@ -22,6 +22,7 @@ This document will be updated regularly as I continue to work through different 
 [Constants](#constants)</br>
 [Control Flow](#control-flow)</br>
 [Dictionaries](#dictionaries)<br/>
+[Enum](#enum)<br/>
 [For-In](#for-in)</br>
 [Functions](#functions)</br>
 [If](#if)</br>
@@ -227,6 +228,90 @@ See the following:
 ```swift
     print(dictName[“key”] as Any)	    // output: Optional(3)
 ```
+
+
+## ENUM
+
+  Different from an `enum` that you’re used to.
+
+  Use the keyword: **enum**
+  Use the keyword: **case** (for enum value names, but **_do not_** follow it with a `:`)
+  
+  To access an instance’s raw value, you’ll use the `.rawValue` property of that instance to obtain it.
+
+  Enums can have `rawValue` types of `Int`, `Float`, and `String`, but if there isn’t a *meaningful* `rawValue` type,
+  you don’t even need to provide one.
+
+  Refer to *this instance* of the enum by the `self` keyword within the enum’s definition.
+
+```swift
+    enum EnumName: rawValueDataType {
+      case: enumValueName = value            // if you don’t want to start at the default of 0
+      case: valueName, valueName, . . .
+      // as many cases as you need
+      // you can also include functions
+    }
+```
+
+  As mentioned above, you can have an enum with a *meaningful* `rawValue` type, or without.
+
+  The following two examples show the difference between the two.
+
+* **WITH A MEANINGFUL RAW VALUE TYPE**
+   These are enum types in which the `rawValue` might actually mean something. In the following example, it is indicative
+   of the card’s face value.
+
+```swift
+    enum Rank: Int {
+      case ace = 1
+      case two, three, four, five, six, seven, eight, nine, ten
+      case jack, queen, king
+
+      func description() -> String {
+        switch self {			// notice how we just switch on ‘self’
+          case .ace:				// and how the enum values are referred to as .ace, etc.
+            return “ace”			// within the enum’s definition
+          case .jack:
+            return “jack”
+        }
+      }
+    }
+
+    let ace = Rank.ace			// but outside the enum definition, we need the fully qualified name
+    let aceRawValue = ace.rawValue
+
+    print(ace)				// output: ace
+    print(aceRawValue)			// output: 1
+```
+
+* **WITHOUT A MEANINGFUL RAW VALUE TYPE**
+   These are enums in which the `rawValue` wouldn’t necessarily mean anything, and so we leave it out completely.
+   The example we’ll use is suits of cards in a deck - although, depending on which game you’re playing it is possible to
+   actually rank them in an order. But for the sake of an easy example, let’s just follow the card suit example!
+```swift
+   enum Suit {				// notice how we left off the rawValue data type indicator, and provide only a name
+     case spades, hearts, diamonds, clubs
+
+     func description() -> String {
+       switch self {				// we still switch on ‘self’
+         case .spades:			// and refer to enum values by .valueName
+           return “spades”
+         case .hearts:
+           return “hearts”
+       }
+     }
+   }
+
+   let hearts = Suit.hearts			// okay, assigns the enum value of Suit.hearts to the hearts variable
+   let heartsDesc = hearts.description();	// also okay, assigns the String value “hearts” to the heartsDesc variable
+
+   let heartsRaw = hearts.rawValue		// produces a compiler error
+```
+
+   The last line above (`let heartsRaw = hearts.rawValue`) would produce a compiler error.</br>
+   This is due to the fact that you defined your enum type **_without_** a `rawValue` data type specifier.</br>
+   As a result, the enum type `Suit` does **_not_** even contain a property for `rawValue`.
+
 
 
 ## FOR-IN

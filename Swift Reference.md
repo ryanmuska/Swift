@@ -467,8 +467,8 @@ See the following:
   Implement a `protocol` by using `:`
 
   > **NOTE:** You can use protocols just like interfaces, where you can have a collection of objects of different types
-  > that all implement the same protocol. They’ll have a runtime type of the implemented protocol, but the compiler will
-  > treat each one as an object of its declared type, thus preventing you from accessing properties/methods they don’t contain.
+  > that all implement the same protocol. They’ll have a runtime type of the actual class, but the compiler will
+  > treat each one as an object of the implemented type, thus preventing you from accessing properties/methods they don’t contain.
 
 ```swift
     protocol SampleProtocol {

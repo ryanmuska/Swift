@@ -29,6 +29,7 @@ This document will be updated regularly as I continue to work through different 
 [If-Let](#if-let)</br>
 [Insert Values Into Strings](#insert-values-into-strings)</br>
 [Optionals](#optionals)</br>
+[Protocols](#protocols)</br>
 [Structures](#structures)</br>
 [Tuples](#tuples)</br>
 [Variables](#variables)</br>
@@ -452,6 +453,35 @@ See the following:
   var optionalInteger: Int? = 8
   var optionalString: String? = nil
 ```
+
+
+
+## PROTOCOLS
+
+  Use the keyword: **protocol**
+
+  Think of a protocol as an interface.
+
+  They define a set of functionality / properties that can later be implemented by `class`, `enum`, and `struct`.
+
+  Implement a `protocol` by using `:`
+
+  > **NOTE:** You can use protocols just like interfaces, where you can have a collection of objects of different types
+  > that all implement the same protocol. They’ll have a runtime type of the implemented protocol, but the compiler will
+  > treat each one as an object of its declared type, thus preventing you from accessing properties/methods they don’t contain.
+
+```swift
+    protocol SampleProtocol {
+      var description: String { get }	// define a required property
+
+      mutating func adjust()		// define a required function
+    }
+```
+  > **NOTE:** Notice the keyword `mutating` in the function declaration. For `struct` types, you’ll also need to include
+  > this keyword in the definition of the structure’s implementation of this function because it marks the function as
+  > one that modifies the `struct`.
+  > A `class` does **_not_** require use of the `mutating` keyword, as member functions can always modify instances of that class.
+
 
 
 ## STRUCTURES

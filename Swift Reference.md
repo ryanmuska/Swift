@@ -315,6 +315,14 @@ See the following:
    This is due to the fact that you defined your enum type **_without_** a `rawValue` data type specifier.</br>
    As a result, the enum type `Suit` does **_not_** even contain a property for `rawValue`.
 
+* **CREATE AN INSTANCE FROM A RAW VALUE**
+   You can use the initializer function provided to generate an instance of a particular enum given some raw value.</br>
+   The syntax of the initializer is: `init?(rawValue:)` where you’d replace `init?` with the name of the enum, and provide a
+   raw value as an argument. Keep in mind that if the raw value you provide is out of range of the actual enum, `nil` will
+   be returned, so it’s a good idea to combine this with an [IF-LET](#if-let) if you’re concerned about `nil` values.
+```swift
+    let myInstance = Rank(rawValue: 3)
+```
 
 
 ## FOR-IN

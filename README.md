@@ -1,2 +1,4 @@
 # Swift
-Lessons from "A Swift Tour" at developer.apple.com
+
+### Please view “Swift Reference.md”.
+

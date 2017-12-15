@@ -259,6 +259,7 @@ See the following:
   The following two examples show the difference between the two.
 
 * **WITH A MEANINGFUL RAW VALUE TYPE**
+
    These are enum types in which the `rawValue` might actually mean something. In the following example, it is indicative
    of the card’s face value.
 
@@ -286,6 +287,7 @@ See the following:
 ```
 
 * **WITHOUT A MEANINGFUL RAW VALUE TYPE**
+
    These are enums in which the `rawValue` wouldn’t necessarily mean anything, and so we leave it out completely.
    The example we’ll use is suits of cards in a deck - although, depending on which game you’re playing it is possible to
    actually rank them in an order. But for the sake of an easy example, let’s just follow the card suit example!

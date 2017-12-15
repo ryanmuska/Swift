@@ -21,8 +21,9 @@ This document will be updated regularly as I continue to work through different 
 [Classes](#classes)</br>
 [Constants](#constants)</br>
 [Control Flow](#control-flow)</br>
-[Dictionaries](#dictionaries)<br/>
-[Enum](#enum)<br/>
+[Dictionaries](#dictionaries)</br>
+[Enum](#enum)</br>
+[Error](#error)</br>
 [For-In](#for-in)</br>
 [Functions](#functions)</br>
 [If](#if)</br>
@@ -325,6 +326,39 @@ See the following:
 ```swift
     let myInstance = Rank(rawValue: 3)
 ```
+
+
+## ERROR
+
+   You can represent an error by any type that “adopts” (implements) the `Error` protocol.
+
+```swift
+    enum PhoneError : Error {
+      case noDialTone
+      case busySignal
+      case numberOutOfService
+    }
+```
+
+  To throw an error, you simply use `throw` followed by the error you wish to throw.
+
+```swift
+    throw PhoneError.busySignal
+```
+
+  To mark a function as one that can throw an error, use the `throws` keyword. You don’t need to indicate which type
+  of error it throws, just that it *can* throw.
+
+```swift
+    func makePhoneCall(recipient: Int) throws -> String {
+      if lineIsBusy(recipient) {
+        throw PhoneError.busySignal
+      }
+    }
+
+    return “Call is connected.”
+```
+
 
 
 ## FOR-IN

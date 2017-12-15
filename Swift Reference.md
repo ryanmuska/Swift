@@ -238,6 +238,7 @@ See the following:
   Use the keyword: **case** (for enum value names, but **_do not_** follow it with a `:`)
   
   To access an instance’s raw value, you’ll use the `.rawValue` property of that instance to obtain it.
+  > **NOTE:** The `.rawValue` property does not exist on enum types with no explicitly defined `rawValue` type
 
   Enums can have `rawValue` types of `Int`, `Float`, and `String`, but if there isn’t a *meaningful* `rawValue` type,
   you don’t even need to provide one.

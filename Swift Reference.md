@@ -29,6 +29,7 @@ This document will be updated regularly as I continue to work through different 
 [If-Let](#if-let)</br>
 [Insert Values Into Strings](#insert-values-into-strings)</br>
 [Optionals](#optionals)</br>
+[Structures](#structures)</br>
 [Tuples](#tuples)</br>
 [Variables](#variables)</br>
 
@@ -451,6 +452,41 @@ See the following:
   var optionalInteger: Int? = 8
   var optionalString: String? = nil
 ```
+
+
+## STRUCTURES
+
+  Use the keyword: **struct**
+
+  Act the same way as you’re used to, and can include variables and functions.
+
+  > **NOTE:** An important thing to remember is that a `struct` is copied as it is passed around in your code,
+  > while an `object` is passed by reference.
+
+  ```swift
+      struct StructName {
+        // variables
+        // functions
+      }
+  ```
+
+  ```swift
+      struct Card {
+        var rank: Rank
+        var suit: Suit
+
+        func description() -> String {
+          return “The \(rank.description) of \(suit.description).”
+        }
+      }
+
+      let threeOfClubs = Card(rank: .three, suit: .clubs);
+  ```
+
+  > **NOTE:** Notice how the `struct`, Card, doesn’t define an `init()` function.
+  > Also notice that when instantiating a new variable of type `Card`, we were able to use the `.value` of the
+  > enumerations and were not required to use the fully qualified names.
+
 
 
 ## TUPLES

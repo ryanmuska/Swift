@@ -234,7 +234,7 @@ See the following:
 
   Different from an `enum` that you’re used to.
 
-  Use the keyword: **enum**
+  Use the keyword: **enum**</br>
   Use the keyword: **case** (for enum value names, but **_do not_** follow it with a `:`)
   
   To access an instance’s raw value, you’ll use the `.rawValue` property of that instance to obtain it.

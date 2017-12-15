@@ -243,9 +243,11 @@ See the following:
 
   Basically a `try-catch` block, but with a few slight differences.
 
-  Within the `do` block, you’ll mark the code that may throw an error with `try`.
+  Within the `do` block, you’ll mark the code that may throw an error with `try` or `try?`.
 
   Within the `catch` block, the error being caught is given the name `error` by default, unless you provide a different one.
+
+* **DO-CATCH WITH TRY**
 
   See [ERROR HANDLING](#error-handling) for the definition of the function in this example.
 
@@ -262,6 +264,17 @@ See the following:
     }
 ```
 
+* **DO-CATCH WITH TRY?**
+
+  If an error is thrown, the error is discarded, and the result is `nil`.
+
+  If no error is thrown, the result is an optional containing the value returned by the function.
+
+```swift
+    let phoneResponse = try? makePhoneCall(recipient: targetNumber)
+```
+
+  
 
 
 ## ENUM

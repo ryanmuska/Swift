@@ -22,6 +22,7 @@ This document will be updated regularly as I continue to work through different 
 [Constants](#constants)</br>
 [Control Flow](#control-flow)</br>
 [Dictionaries](#dictionaries)</br>
+[Do-Catch](#do-catch)</br>
 [Enum](#enum)</br>
 [Error](#error)</br>
 [For-In](#for-in)</br>
@@ -233,6 +234,36 @@ See the following:
 ```
 
 
+
+## DO-CATCH
+
+  Use keyword: **do** (instead of `try`)</br>
+  Use keyword: **try** (as a marker)</br>
+  Use keyword: **catch**
+
+  Basically a `try-catch` block, but with a few slight differences.
+
+  Within the `do` block, you’ll mark the code that may throw an error with `try`.
+
+  Within the `catch` block, the error being caught is given the name `error` by default, unless you provide a different one.
+
+  See [ERROR HANDLING](#error-handling) for the definition of the function in this example.
+
+```swift
+    do {
+      let phoneResponse = try makePhoneCall(recipient: targetNumber)
+      print(phoneResponse)
+    } catch PhoneError.busySignal {				// catch a specific error
+        print(“The line is busy. Must be a telemarketer.”)
+    } catch let phoneError as PhoneError {			// catch other phone errors, and rename from ‘error’ to ‘phoneError’
+        print(“Phone error: \(phoneError)”)
+    } catch {								// catch any other kind of error
+        print(error)
+    }
+```
+
+
+
 ## ENUM
 
   Different from an `enum` that you’re used to.
@@ -328,7 +359,7 @@ See the following:
 ```
 
 
-## ERROR
+## ERROR HANDLING
 
    You can represent an error by any type that “adopts” (implements) the `Error` protocol.
 
@@ -358,6 +389,8 @@ See the following:
 
     return “Call is connected.”
 ```
+
+  To work with code that can throw errors, you’ll use a [DO-CATCH](#do-catch) block.
 
 
 

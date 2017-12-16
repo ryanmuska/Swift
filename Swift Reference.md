@@ -34,6 +34,7 @@ This document will be updated regularly as I continue to work through different 
 [Protocols](#protocols)</br>
 [Repeat-While](#repeat-while)</br>
 [Structures](#structures)</br>
+[Switch](#switch)</br>
 [Tuples](#tuples)</br>
 [Variables](#variables)</br>
 [While](#while)</br>
@@ -179,7 +180,7 @@ See the following:
 * [FOR-IN](#for-in)
 * [IF](#if)
 * [REPEAT-WHILE](#repeat-while)
-* SWITCH
+* [SWITCH](#switch)
 * [WHILE](#while)
 
 

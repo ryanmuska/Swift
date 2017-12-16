@@ -32,6 +32,7 @@ This document will be updated regularly as I continue to work through different 
 [Insert Values Into Strings](#insert-values-into-strings)</br>
 [Optionals](#optionals)</br>
 [Protocols](#protocols)</br>
+[Repeat-While](#repeat-while)</br>
 [Structures](#structures)</br>
 [Tuples](#tuples)</br>
 [Variables](#variables)</br>
@@ -177,7 +178,7 @@ This document will be updated regularly as I continue to work through different 
 See the following:
 * [FOR-IN](#for-in)
 * [IF](#if)
-* REPEAT-WHILE
+* [REPEAT-WHILE](#repeat-while)
 * SWITCH
 * [WHILE](#while)
 
@@ -565,6 +566,20 @@ See the following:
 
 
 
+
+## REPEAT-WHILE
+
+  Basically a `do-while` loop that you’re used to.</br>
+  Again, the condition **must be a boolean** and the `( )` parens are not needed.
+
+```swift
+    repeat {
+        // do some stuff
+    } while condition
+```
+
+
+
 ## STRUCTURES
 
   Use the keyword: **struct**
@@ -598,6 +613,28 @@ See the following:
   > Also notice that when instantiating a new variable of type `Card`, we were able to use the `.value` of the
   > enumerations and were not required to use the fully qualified names.
 
+
+## SWITCH
+
+  A typical `switch` that you’re used to, but with some additional functionality.</br>
+  **_NOT_** limited to integers and tests for equality.</br>
+  Support all types of data and a variety of comparison operators.
+  > **NOTE:** `switch` does **_not_** support fall-through like other languages, so a `break` statement is not required
+  > after each `case` definition. Instead, to handle fall-through, the case is a comma-separated list of values.
+
+```swift
+    switch comparitor {
+        case value_0:
+          // do something
+        case value_1:
+          // do something else
+        case value_2, value_3:
+          // fall-through style
+        default:
+          // no cases matched
+    }
+```
+  
 
 
 ## TUPLES
@@ -645,7 +682,8 @@ See the following:
 
 ## WHILE
 
-  Just what you’re used to, keeping in mind that the condition **must be a boolean**.
+  Just what you’re used to, minus the `( )` parens around the condition.</br>
+  Keep in mind that as with other control-flow statements, the condition **must be a boolean**.
 
 ```swift
     while condition {

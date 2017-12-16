@@ -35,6 +35,7 @@ This document will be updated regularly as I continue to work through different 
 [Structures](#structures)</br>
 [Tuples](#tuples)</br>
 [Variables](#variables)</br>
+[While](#while)</br>
 
 
 ---
@@ -178,7 +179,7 @@ See the following:
 * [IF](#if)
 * REPEAT-WHILE
 * SWITCH
-* WHILE
+* [WHILE](#while)
 
 
 ## DICTIONARIES
@@ -639,4 +640,15 @@ See the following:
    No data type required when value provided
 ```swift
     var varName = 7
+```
+
+
+## WHILE
+
+  Just what you’re used to, keeping in mind that the condition **must be a boolean**.
+
+```swift
+    while condition {
+      // do stuff
+    }
 ```

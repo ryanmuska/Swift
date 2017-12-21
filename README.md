@@ -49,9 +49,9 @@ This document will be updated regularly as I continue to work through different 
     Data type **_cannot_** be inferred - requires () parens
   
 ```swift
-    var arrayName[dataType]()
+    var arrayName = [dataType]()
     
-    var arrayName[String]();
+    var arrayName = [String]();
 ```
 
  * **PREFILLED**
@@ -59,7 +59,7 @@ This document will be updated regularly as I continue to work through different 
    Data types **_can_** be inferred.
    
 ```swift
-    var arrayName[“value”, “value”, “value”]
+    var arrayName = [“value”, “value”, “value”]
 ```
 
 

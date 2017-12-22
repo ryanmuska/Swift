@@ -30,6 +30,7 @@ This document will be updated regularly as I continue to work through different 
 [If](#if)</br>
 [If-Let](#if-let)</br>
 [Insert Values Into Strings](#insert-values-into-strings)</br>
+[Numeric Literals / Radices](#numeric-literals-in-different-radices)</br>
 [Optionals](#optionals)</br>
 [Protocols](#protocols)</br>
 [Repeat-While](#repeat-while)</br>
@@ -41,6 +42,19 @@ This document will be updated regularly as I continue to work through different 
 
 
 ---
+
+## ALIASES
+
+  Use the keyword: **typealias**
+
+  Basically just a `typedef`
+
+```swift
+    typedef NewTypeName = actualTypeName
+
+    typedef OneByte = Int8
+```
+
 
 ## ARRAYS
 
@@ -65,7 +79,9 @@ This document will be updated regularly as I continue to work through different 
 
 ## CASTING
 
-  Values are **NEVER IMPLICITLY CONVERTED** between types
+  Values are **NEVER IMPLICITLY CONVERTED** between types</br>
+  As a result, if you’re adding an `Int8` and an `Int16`, you would need to cast the `Int8` up to `Int16` explicitly
+  for any maths operations.
   
   Use either of the two typical forms:
 
@@ -655,15 +671,28 @@ See the following:
 ```
   
 
-
 ## TUPLES
+
+  Allow you to store multiple values (of varying types) in one variable.
 
   Allow you to return multiple values from a function.
   
   An empty tuple `()` can also be used to indicate `Void`
   
   Refer to the values stored in a tuple by name OR index.
+
+  >**NOTE:** Tuples are preferred for simple temporary-scoped related values.
+  > If your data structure is complex or will persist, consider a `class` or `struct`
   
+  ### DEFINING A TUPLE
+
+  Suppose you want to store an HTTP status code. You might use a tuple:
+```swift
+   let httpCode = (404, “Not Found”)
+```
+
+  ### RETURNING TUPLES FROM FUNCTIONS
+
   Suppose a function that returns 3 `Int` values: min, max, sum:
  ```swift
     func returnTuple(scores: [Int]) -> (min: Int, max: Int, sum: Int) {
@@ -677,6 +706,19 @@ See the following:
 
     print(result.max);  // prints the max value off the tuple
     print(result[1]);   // prints the max value off the tuple
+```
+
+  ### DECONSTRUCTING TUPLES
+
+  When your tuple does **_not_** contain named properties, and you don’t want to access by index:
+```swift
+    let http404NotFound = (404, “Not Found”)       // define a tuple without named properties
+
+    // DECONSTRUCT THE TUPLE INTO 2 CONSTANTS
+    let (statusCode, description) = http404NotFound
+
+    // IGNORE PARTS OF THE TUPLE YOU DON’T NEED USING _ UNDERSCORE
+    let (statusCode, _) = http404NotFound
 ```
 
 

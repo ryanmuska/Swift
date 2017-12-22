@@ -25,7 +25,7 @@ This document will be updated regularly as I continue to work through different 
 [Dictionaries](#dictionaries)</br>
 [Do-Catch](#do-catch)</br>
 [Enum](#enum)</br>
-[Error](#error)</br>
+[Error Handling](#error-handling)</br>
 [For-In](#for-in)</br>
 [Functions](#functions)</br>
 [If](#if)</br>
@@ -51,9 +51,9 @@ This document will be updated regularly as I continue to work through different 
   Basically just a `typedef`
 
 ```swift
-    typedef NewTypeName = actualTypeName
+    typealias NewTypeName = actualTypeName
 
-    typedef OneByte = Int8
+    typealias OneByte = Int8
 ```
 
 

@@ -16,6 +16,7 @@ This document will be updated regularly as I continue to work through different 
 
 # Contents
 
+[Aliases](#aliases)</br>
 [Arrays](#arrays)</br>
 [Casting](#casting)</br>
 [Classes](#classes)</br>
@@ -95,6 +96,12 @@ This document will be updated regularly as I continue to work through different 
     
     Double(numberOfBars)
 ```
+
+  > **NOTE ON CONVERSIONS**</br>
+  > When casting/converting, say, a `String` to an `Int`, you’re actually calling an initializer that returns type `Int?`
+  > because it’s possible that the initializer might fail - for instance, if you tried to convert `”123”` to an `Int`,
+  > the resulting `Int?` would have a value of `123`, but if you tried to convert `”hello”`, the resulting `Int?` would
+  > have a value of `nil` because the initializer would have failed.
 
 
 ## CLASSES
@@ -521,6 +528,10 @@ See the following:
 ```swift
     if (someOptionalVariable != nil) { . . . }
 ```
+  > **NOTE:** Using the `if-let` allows you to refer to the newly created variable in the `if-let`’s body 
+  > (such as `name` above).</br>
+  > *However*, if you prefer the simple `!= nil` check, once inside the `if` statement’s body, you would **force**
+  > **unwrap** the `someOptionalVariable` by appending a `!` to the end of it.
 
 
 ## INSERT VALUES INTO STRINGS

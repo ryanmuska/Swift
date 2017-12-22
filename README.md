@@ -521,6 +521,24 @@ See the following:
 
 
 
+## NUMERIC LITERALS IN DIFFERENT RADICES
+
+  To express a numeric literal in binary, octal, or hex, use the following prefixes respectively:
+
+```swift
+    0b    binary
+    0o    octal
+    0x    hex
+```
+
+  For example, all of the following statements represent the decimal number 17:
+```swift
+    17
+    0b10001
+    0o21
+    0x11
+```
+
 ## OPTIONALS
 
   Explicit data type is required

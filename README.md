@@ -531,7 +531,8 @@ See the following:
   > **NOTE:** Using the `if-let` allows you to refer to the newly created variable in the `if-let`’s body 
   > (such as `name` above).</br>
   > *However*, if you prefer the simple `!= nil` check, once inside the `if` statement’s body, you would **force**
-  > **unwrap** the `someOptionalVariable` by appending a `!` to the end of it.
+  > **unwrap** the `someOptionalVariable` by appending a `!` to the end of it. When printing `someOptionalVariable`,
+  > failure to force unwrap it in the `if`’s body will cause it to output as `Optional(x)` where `x` is its value.
 
 
 ## INSERT VALUES INTO STRINGS

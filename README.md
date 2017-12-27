@@ -34,6 +34,7 @@ This document will be updated regularly as I continue to work through different 
 [Insert Values Into Strings](#insert-values-into-strings)</br>
 [Numeric Literals / Radices](#numeric-literals-in-different-radices)</br>
 [Optionals](#optionals)</br>
+[Preconditions](#preconditions)</br>
 [Protocols](#protocols)</br>
 [Repeat-While](#repeat-while)</br>
 [Structures](#structures)</br>
@@ -82,7 +83,8 @@ This document will be updated regularly as I continue to work through different 
 ## ASSERTIONS
 
   Use the library function **assert(_:_:file:line:)**</br>
-  Use the library function **assertionFailure(_:file:line:)**
+  Use the library function **assertionFailure(_:file:line:)**</br>
+  See also: **[Preconditions](#preconditions)**
 
   Use assertions for `debug` builds. Assertions are not evaluated in `production` builds, so they have no effect on
   production builds.
@@ -618,6 +620,18 @@ See the following:
 ```
 
 
+## PRECONDITIONS
+
+  Use the library function: **precondition(_:_:file:line:)**</br>
+  Use the library function: **precondtionFailure(_:file:line:)**</br>
+  See also: **[Assertions](#assertions)**
+
+  Use a `precondition` whenever a condition **_may_** be false, but absolutely **_must be true_** for your code to continue,
+  such as checking for an `index out of bounds`.
+
+```swift
+    precondition(index > 0, “Index cannot be negative.”)
+```
 
 ## PROTOCOLS
 

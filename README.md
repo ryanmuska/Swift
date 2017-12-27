@@ -18,6 +18,7 @@ This document will be updated regularly as I continue to work through different 
 
 [Aliases](#aliases)</br>
 [Arrays](#arrays)</br>
+[Assertions](#assertions)</br>
 [Casting](#casting)</br>
 [Classes](#classes)</br>
 [Constants](#constants)</br>
@@ -37,6 +38,7 @@ This document will be updated regularly as I continue to work through different 
 [Repeat-While](#repeat-while)</br>
 [Structures](#structures)</br>
 [Switch](#switch)</br>
+[Try-Catch (Do-Try-Catch)](#error-handling)</br>
 [Tuples](#tuples)</br>
 [Variables](#variables)</br>
 [While](#while)</br>
@@ -75,6 +77,32 @@ This document will be updated regularly as I continue to work through different 
    
 ```swift
     var arrayName = [“value”, “value”, “value”]
+```
+
+## ASSERTIONS
+
+  Use the library function **assert(_:_:file:line:)**</br>
+  Use the library function **assertionFailure(_:file:line:)**
+
+  Use assertions for `debug` builds. Assertions are not evaluated in `production` builds, so they have no effect on
+  production builds.
+
+  Pass the assert() function a condition and a message to display if the condition fails.
+
+```swift
+    let visitors = -10
+    assert(visitors >= 0, “A physical quantity cannot be negative.”)
+```
+
+  You can use the `assertionFailure(:_file:line:)` drop the `message` if the condition is already being checked in code:
+```swift
+    if age >= 16 {
+        print(“You may operate a motor vehicle.”)
+    } else if age > 0 {
+        print(“You may operate a foot powered vehicle.”)
+    } else {
+        assertionFailure(“A person cannot have a negative age.”)
+    }
 ```
 
 
@@ -514,20 +542,26 @@ See the following:
 
 ## IF-LET
 
-  A method of testing optional values. You may also simply use   
-  ```swift
-      if (value != nil) { . . . }
-  ```
-  If the optional value is `nil`, it won’t be assigned to the new variable, causing the if condition to result to false, skipping the body:
+  A method of testing optional values.</br>
+  If the optional value is `nil`, it won’t be assigned to the new variable, causing the `if` condition to result to false, skipping the body:
 
 ```swift
     if let name = someOptionalVariable { . . . }
 ```
 
-  This is the same as
+  This is technically the same as
 ```swift
     if (someOptionalVariable != nil) { . . . }
 ```
+  The key difference to note between the two above examples is that the first example you can simply refer to `name` within
+  the body of the `if let`, but in the second example you’d need to force-unwrap `someOptionalVariable` within the `if` body.
+  For variable naming simplicity, you can use the following:
+
+```swift
+    if let someOptional = someOptional { . . . }
+```
+   That way, within the scope of the `if let` body, you can just refer to `someOptional`.
+
   > **NOTE:** Using the `if-let` allows you to refer to the newly created variable in the `if-let`’s body 
   > (such as `name` above).</br>
   > *However*, if you prefer the simple `!= nil` check, once inside the `if` statement’s body, you would **force**
@@ -740,9 +774,20 @@ See the following:
 
 * **EXPLICIT** 
 
-   Data type required only when value is not provided
+   Data type required only when value is not provided or when creating an optional
 ```swift
+    // SIMPLE VARIABLE:
     var varName: dataType = value
+
+    // OPTIONAL:
+    var varName: dataType? = value	// may contain a value or nil - requires unwrapping using the ! operator
+
+    print(varName!)                  // access an optional using ! operator to prevent printing as: “Optional(value)”
+
+    // IMPLICITLY UNWRAPPED OPTIONAL
+    var varName: dataType! = value   // may contain a value or nil, but after definition is assumed to contain a
+                                     // value and does not require unwrapping
+    print(varName)
 ```
 
 * **INFERRED** 

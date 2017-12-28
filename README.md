@@ -508,19 +508,19 @@ See the following:
   
   When calling the function, you have 3 options for how to specify the arguments, depending on how the function was declared.
 
-* BY NAME:
+* **BY NAME**:
 ```swift
     func greet(name: String) -> String { . . . }
     greet(name: “Billy Joe”);
 ```
 
-* BY A CUSTOM LABEL:
+* **BY A CUSTOM LABEL**:
 ```swift
     func greet(person name: String) -> String { . . . }
     greet(person: “Billy Bob”);
 ```
 
-* WITH NO LABEL (most convenient):
+* **WITH NO LABEL** (most convenient):
 ```swift
     func greet(_ name: String) -> String { . . . }
     greet(“Billy Bob Joe”);
@@ -612,11 +612,29 @@ See the following:
   By default, they detect and prevent overflow. You must opt in to allow overflow by using the
   [Overflow Operators](#overflow-operators).
 
-  `a..<b` and `a…b` are also considered operators representing a range of values of `[a, b)` and `[a, b]`
-  respectively.
+* **RANGE OPERATORS**
 
-  `??` is the **nil-coalescing operator**.</br>
-  It is shorthand for `a != nil ? a! : b`</br>
+  ```swift
+      a..<b     // half open [a, b)
+
+      a…b     // closed [a, b]
+
+      [a…]    // one-sided [a, N] where N is the number of elements in an array
+      […b]    // one-sided [0, b]
+
+      for name in names[2…] {
+          // do something for elements 2 through the end of the array
+      }
+
+      for name in names[…4] {
+          // do something for elements 0 through 4
+      }
+  ```
+
+* **NIL-COALESCING OPERATOR**
+
+  `??`</br>
+  Shorthand for `a != nil ? a! : b`</br>
   (basically, if `a` is not `nil`, unwrap `a` and use it, else use `b`.
 ```swift
     let numberToUse = someOptionalValue ?? someDefaultValue

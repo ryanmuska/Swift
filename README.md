@@ -617,19 +617,26 @@ See the following:
   ```swift
       a..<b     // half open [a, b)
 
-      a…b     // closed [a, b]
+      a...b     // closed [a, b]
 
-      [a…]    // one-sided [a, N] where N is the number of elements in an array
-      […b]    // one-sided [0, b]
+      [a...]    // one-sided [a, N] where N is the number of elements in an array
+      [...b]    // one-sided [0, b]
 
-      for name in names[2…] {
+      for name in names[2...] {
           // do something for elements 2 through the end of the array
       }
 
-      for name in names[…4] {
+      for name in names[...4] {
           // do something for elements 0 through 4
       }
   ```
+
+  > **NOTE:** You can use range operators in contexts other than just ranges of subscripts. For instance, you can
+  > actually assign a range operator to a variable, `let range = ...5`.</br>
+  > You **_cannot_** iterate over a one-sided range with no initial value, as it’s not clear where it begins.</br>
+  > You can check if a range contains a value by using the `.contains()` method:
+  > `range.contains(7)`  would return `false` in the range mentioned earlier in this note.
+
 
 * **NIL-COALESCING OPERATOR**
 

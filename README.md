@@ -640,12 +640,17 @@ See the following:
 
 * **NIL-COALESCING OPERATOR**
 
-  `??`</br>
-  Shorthand for `a != nil ? a! : b`</br>
+  `??`
+  Shorthand for `a != nil ? a! : b`
+
   (basically, if `a` is not `nil`, unwrap `a` and use it, else use `b`.
+
 ```swift
     let numberToUse = someOptionalValue ?? someDefaultValue
 ```
+
+  In the above example, if `someOptionalValue` is `nil`, `someDefaultValue` is used instead, but if it’s **_not_**
+  `nil`, then `someOptionalValue` is unwrapped and `someDefaultValue` is never evaluated.
   
 
 ## OPTIONALS

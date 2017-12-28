@@ -33,6 +33,7 @@ This document will be updated regularly as I continue to work through different 
 [If-Let](#if-let)</br>
 [Insert Values Into Strings](#insert-values-into-strings)</br>
 [Numeric Literals / Radices](#numeric-literals-in-different-radices)</br>
+[Operators](#operators)</br>
 [Optionals](#optionals)</br>
 [Preconditions](#preconditions)</br>
 [Protocols](#protocols)</br>
@@ -590,9 +591,9 @@ See the following:
   To express a numeric literal in binary, octal, or hex, use the following prefixes respectively:
 
 ```swift
-    0b    binary
-    0o    octal
-    0x    hex
+    0b    // binary
+    0o    // octal
+    0x    // hex
 ```
 
   For example, all of the following statements represent the decimal number 17:
@@ -602,6 +603,25 @@ See the following:
     0o21
     0x11
 ```
+
+
+## OPERATORS
+
+  Support for all of the operators you’re used to.
+
+  By default, they detect and prevent overflow. You must opt in to allow overflow by using the
+  [Overflow Operators](#overflow-operators).
+
+  `a..<b` and `a…b` are also considered operators representing a range of values of `[a, b)` and `[a, b]`
+  respectively.
+
+  `??` is the **nil-coalescing operator**.</br>
+  It is shorthand for `a != nil ? a! : b`</br>
+  (basically, if `a` is not `nil`, unwrap `a` and use it, else use `b`.
+```swift
+    let numberToUse = someOptionalValue ?? someDefaultValue
+```
+  
 
 ## OPTIONALS
 

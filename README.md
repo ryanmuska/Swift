@@ -38,6 +38,7 @@ This document will be updated regularly as I continue to work through different 
 [Preconditions](#preconditions)</br>
 [Protocols](#protocols)</br>
 [Repeat-While](#repeat-while)</br>
+[Strings](#strings)</br>
 [Structures](#structures)</br>
 [Switch](#switch)</br>
 [Try-Catch (Do-Try-Catch)](#error-handling)</br>
@@ -722,6 +723,36 @@ See the following:
         // do some stuff
     } while condition
 ```
+
+
+## STRINGS
+
+* **EMPTY STRINGS**
+  
+  Both of the following are equivalent when creating an empty string:
+  ```swift
+      var emptyString = “”
+
+      var emptyString = String()
+  ```
+
+  Check if a string is empty using the `.isEmpty` property. Remember, it’s a **_property_**, not a method.
+
+* **MULTI-LINE STRING LITERALS**
+
+  Use 3 double quotes `”””` to enclose a multi-line string.
+
+  The indentation of the *closing* quotations will determine whether or not leading whitespace on a given line
+  is ignored. For example, in the following code, the third line would appear indented 2 spaces because that
+  line is indented 2 spaces further than the closing quotation marks.
+
+  ```swift
+      let multiLineString = “””
+      This string can span multiple
+        lines and contain “quotes” without
+      escaping if you’d like.
+      “””
+  ```
 
 
 

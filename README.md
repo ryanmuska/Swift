@@ -83,8 +83,8 @@ This document will be updated regularly as I continue to work through different 
 
 ## ASSERTIONS
 
-  Use the library function **assert(_:_:file:line:)**</br>
-  Use the library function **assertionFailure(_:file:line:)**</br>
+  Use the library function `assert(_:_:file:line:)` used as: `assert(condition, “message”)`</br>
+  Use the library function `assertionFailure(_:file:line:)` used as: `assertionFailure(“message”)`</br>
   See also: **[Preconditions](#preconditions)**
 
   Use assertions for `debug` builds. Assertions are not evaluated in `production` builds, so they have no effect on
@@ -97,7 +97,7 @@ This document will be updated regularly as I continue to work through different 
     assert(visitors >= 0, “A physical quantity cannot be negative.”)
 ```
 
-  You can use the `assertionFailure(:_file:line:)` drop the `message` if the condition is already being checked in code:
+  You can use `assertionFailure(:_file:line:)` and drop the `condition` if the condition is already being checked in code:
 ```swift
     if age >= 16 {
         print(“You may operate a motor vehicle.”)
@@ -475,7 +475,7 @@ See the following:
     for item in collection { . . . }
 
     var fruitsArray = [“banana”, “apple”, “tomato”, “peach”];
-    for fruit in fruits {
+    for fruit in fruitsArray {
       print(fruit);
     }
     

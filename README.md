@@ -148,6 +148,8 @@ This document will be updated regularly as I continue to work through different 
 
 ## CHARACTERS IN STRINGS
 
+  Dataype is: `Character`
+
 * **ITERATION**
 
   * Iterate using a `for-in` loop over a `String` literal or a `String` constant/variable
@@ -164,6 +166,35 @@ This document will be updated regularly as I continue to work through different 
       let someCharArray: [Character] = [“a”, “r”, “r”, “a”, “y”]
   ```
 
+* **UNICODE SCALARS**
+
+  Produce any unicode scalar using the format `\u{x}` where `x` is any valid unicode code point, **_not including_**
+  the *surrogate pair* code points.
+
+  `U+0000` through `U+D7FF` **valid range**</br>
+  `U+E000` through `U+10FFFF` **valid range**</br>
+  `U+D800` through `U+DFFF` **not valid**: surrogate pair code points
+
+* **EXTENDED GRAPHEME CLUSTERS**
+
+  A convenient way to represent complex characters such as Korean Hangul characters or accented Spanish.
+
+  Essentially, any unicode character that is a combination, such as `é` which is `e` and `´’ can be represented
+  as a single character or as its component unicode parts.
+
+  For example:
+  ```swift
+      let eComposed: Character = “\u{E9}”         // é
+      let eDecomped: Character = “\u{65}\u{301}”  // e followed by ´
+
+      let koreanComposed: Character = “\u{D55C}”                   // 한
+      let koreanDecomped: Character = “\u{1112}\u{1161}\u{11AB}”   // ᄒ, ᅡ, ᆫ
+  ```
+
+  In the above example, `eComposed` and `eDecomped` both actually contain the same character.</br>
+  Likewise, `koreanComposed` and `koreanDecomped` both contain the same character, though one version is the
+  unicode “*precomposed*” version, and the other is the “*decomposed*” version.
+ 
 
 ## CLASSES
 

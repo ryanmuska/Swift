@@ -20,6 +20,7 @@ This document will be updated regularly as I continue to work through different 
 [Arrays](#arrays)</br>
 [Assertions](#assertions)</br>
 [Casting](#casting)</br>
+[Characters in Strings](#characters-in-strings)</br>
 [Classes](#classes)</br>
 [Constants](#constants)</br>
 [Control Flow](#control-flow)</br>
@@ -74,13 +75,22 @@ This document will be updated regularly as I continue to work through different 
     var arrayName = [String]();
 ```
 
- * **PREFILLED**
+ * **PREFILLED & INFERRED**
  
    Data types **_can_** be inferred.
    
 ```swift
     var arrayName = [“value”, “value”, “value”]
 ```
+
+ * **PREFILLED & EXPLICIT**
+
+```swift
+    let arrayName: [dataType] = [values]
+
+    let helloArray: [Character] = [“H”, “e”, “l”, “l”, “o”, “!”]
+```
+
 
 ## ASSERTIONS
 
@@ -134,6 +144,25 @@ This document will be updated regularly as I continue to work through different 
   > because it’s possible that the initializer might fail - for instance, if you tried to convert `”123”` to an `Int`,
   > the resulting `Int?` would have a value of `123`, but if you tried to convert `”hello”`, the resulting `Int?` would
   > have a value of `nil` because the initializer would have failed.
+
+
+## CHARACTERS IN STRINGS
+
+* **ITERATION**
+
+  * Iterate using a `for-in` loop over a `String` literal or a `String` constant/variable
+
+  ```swift
+      for char in “Hello!” {
+        // do stuff
+      }
+  ```
+
+  * Iterate using an array of `Character`
+
+  ```swift
+      let someCharArray: [Character] = [“a”, “r”, “r”, “a”, “y”]
+  ```
 
 
 ## CLASSES
@@ -727,6 +756,20 @@ See the following:
 
 ## STRINGS
 
+  Swift `String` is a value type - they are copied when passed to functions.
+
+  Concatenation works as usual, but appending a single string requires the `.appen(:Character)` method.
+
+  Create them as `var`, `let`, or `”string literals”` or by constructing from an array of `[Character]`</br>
+  ```swift
+      var stringVar = “some text!”
+      let stringCon = “a string constant!”
+      print(“just a literal”)
+    
+      let charArray: [Character] = [“h”, “i”]
+      let makeString = String(charArray)
+  ```
+
 * **EMPTY STRINGS**
   
   Both of the following are equivalent when creating an empty string:
@@ -753,6 +796,12 @@ See the following:
       escaping if you’d like.
       “””
   ```
+
+* **MUTABILITY**
+
+  Assign a string to a `var` to indicate mutability or to a constant (`let`) to indicate immutability.
+
+  Attempting to concatenate a string declared with `let` will result in a compiler error.
 
 
 

@@ -22,6 +22,7 @@ This document will be updated regularly as I continue to work through different 
 [Casting](#casting)</br>
 [Characters in Strings](#characters-in-strings)</br>
 [Classes](#classes)</br>
+[Collection Types](#collection-types)</br>
 [Constants](#constants)</br>
 [Control Flow](#control-flow)</br>
 [Dictionaries](#dictionaries)</br>
@@ -65,31 +66,41 @@ This document will be updated regularly as I continue to work through different 
 
 ## ARRAYS
 
- * **EMPTY**
+  Technically written as `Array<Type>`, but the shorthand `[Type]` is preferred.
+
+ * **EMPTY - EXPLICIT**
  
     Data type **_cannot_** be inferred - requires () parens
   
-```swift
-    var arrayName = [dataType]()
+    ```swift
+      var arrayName = [dataType]()
     
-    var arrayName = [String]();
-```
+      var arrayName = [String]();
+    ```
+
+ * **EMPTY - IMPLICIT**
+
+    Data type **_can_** be inferred.
+
+    ```swift
+      var arrayName = []
+    ```
 
  * **PREFILLED & INFERRED**
  
    Data types **_can_** be inferred.
    
-```swift
-    var arrayName = [“value”, “value”, “value”]
-```
+    ```swift
+      var arrayName = [“value”, “value”, “value”]
+    ```
 
  * **PREFILLED & EXPLICIT**
 
-```swift
-    let arrayName: [dataType] = [values]
+    ```swift
+      let arrayName: [dataType] = [values]
 
-    let helloArray: [Character] = [“H”, “e”, “l”, “l”, “o”, “!”]
-```
+      let helloArray: [Character] = [“H”, “e”, “l”, “l”, “o”, “!”]
+    ```
 
 
 ## ASSERTIONS
@@ -264,6 +275,18 @@ This document will be updated regularly as I continue to work through different 
 	}
     }
 ```
+
+
+## COLLECTION TYPES
+
+  There are 3 main types provided by Swift:
+
+  `Array`: Ordered collections of values</br>
+  `Set`: Unordered collections of unique values</br>
+  `Dictionary`: Unordered collections of key-value associations
+
+  Assigned with `let`, a collection’s contents and size **_cannot_** be altered.
+
 
 
 ## CONSTANTS
@@ -789,7 +812,8 @@ See the following:
 
   Swift `String` is a value type - they are copied when passed to functions.
 
-  Concatenation works as usual, but appending a single string requires the `.appen(:Character)` method.
+  Concatenation works as usual, but appending a single string requires the `.appen(:Character)` method.</br>
+  Get a count of the characters in a string using the `.count` **property**.
 
   Create them as `var`, `let`, or `”string literals”` or by constructing from an array of `[Character]`</br>
   ```swift

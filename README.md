@@ -68,6 +68,8 @@ This document will be updated regularly as I continue to work through different 
 
   Technically written as `Array<Type>`, but the shorthand `[Type]` is preferred.
 
+  Arrays can be added together to create bigger arrays.
+
  * **EMPTY - EXPLICIT**
  
     Data type **_cannot_** be inferred - requires () parens
@@ -86,7 +88,7 @@ This document will be updated regularly as I continue to work through different 
       var arrayName = []
     ```
 
- * **PREFILLED & INFERRED**
+ * **PREFILLED & INFERRED** (array literal)
  
    Data types **_can_** be inferred.
    
@@ -94,7 +96,7 @@ This document will be updated regularly as I continue to work through different 
       var arrayName = [“value”, “value”, “value”]
     ```
 
- * **PREFILLED & EXPLICIT**
+ * **PREFILLED & EXPLICIT** (array literal)
 
     ```swift
       let arrayName: [dataType] = [values]
@@ -102,6 +104,24 @@ This document will be updated regularly as I continue to work through different 
       let helloArray: [Character] = [“H”, “e”, “l”, “l”, “o”, “!”]
     ```
 
+ * **PREFILLED WITH REPEATING VALUE**
+
+   You need to use **initializer syntax** and the `Array` keyword:
+
+   ```swift
+       var prefilledArray = Array(repeating: 7.2, count: 3)
+   ```
+
+   The above code creates an array called `prefilledArray` with `3` elements, each containing the value `7.2`.
+
+ * **COMMON PROPERTIES AND METHODS**
+
+  ```swift
+    .count       // number of elements            .isEmpty        // shortcut to see if .count == 0
+    .append()    // same as: arr += value(s)      [x]             // a single subscript, x
+    [a...b]      // range of subscripts           .insert(_:at:)  // insert a value at a specified index
+    .remove(at:) // remove item at index          .removeLast()   // shorthand to skip checking an array’s count
+  ```
 
 ## ASSERTIONS
 

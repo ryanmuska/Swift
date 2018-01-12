@@ -366,6 +366,13 @@ See the following:
   The data type for the `key` must be hashable. If you intend to use a user-defined type as a dictionary key,
   you must implement the `Hashable` protocol.
 
+  Access elements using `[key]` bracket notation.
+
+  Contains properties you’d expect such as `.isEmpty` and `.count`
+
+  Dictionaries are **_not_** ordered. If you need it ordered, use the `.sorted()` method with its `.keys` or
+  `.values` properties.
+
 * **EMPTY**
 
   Data types **_cannot_** be inferred - requires () parens
@@ -394,13 +401,20 @@ See the following:
 ```
 
 * **ADD OR EDIT A KEY / VALUE PAIR**
+
+  Use subscript bracket notation or the `.updateValue(_:forKey:)` method
  
 ```swift
     dictName[“keyName”] = value
+
+    dictName.updateValue(value, forKey: “keyName”)
 ```
 
-> When you print a value, such as a dictionary of `[String : Int]` the value is IMPLICITLY COERCED TO 
-> `‘Any’ (Int?)`. You have 3 options to resolve this:
+  > **NOTE**: `updateValue(_:forKey:)` returns the **_OLD_** value, allowing you to check if the value changed
+
+> When you print a value using bracket notation, the returned value is an optional - because it’s possible that
+> you’ll request a value for a key that doesn’t exist, or for a key that has no value.
+> To deal with this, you have 3 options:
 >
 > 1.) Force unwrap with an exclamation !
 ```swift
@@ -416,6 +430,47 @@ See the following:
     print(dictName[“key”] as Any)	    // output: Optional(3)
 ```
 
+* **REMOVE A KEY-VALUE PAIR**
+
+  Set the value for the key to `nil`
+
+```swift
+  myDict[“key”] = nil
+```
+
+  Use the `.removeValue(forKey:)` method
+
+```swift
+  myDict.removeValue(forKey: “someKey”)
+```
+
+  > **NOTE**: `.removeValue(forKey:)` returns the removed value, or nil if the key doesn’t exist 
+
+* **ITERATION**
+
+  Use a simple `for-in` loop, but remember that iteration yields a `tuple` in the form `(key, value)`
+  so you may want to decompose the tuple while iterating
+
+```swift
+  // assuming you have a dictionary of HTTP status codes
+
+  for (statusCode, statusMessage) in httpStatusCodes {
+    print(“\(statusCode): \(statusMessage)”)
+  }
+```
+
+ Iterate a dictionary’s `key`s or `value`s by accessing the `keys` and `values` properties
+
+```swift
+  for statusCode in httpStatusCodes.keys { ... }
+
+  for statusCodeMsg in httpStatusCodes.values { ... }
+```
+
+ > **NOTE**: You might use a dictionary with an API that requires an array. In that case, you can 
+ > initialize a new array using the `keys` or `values` properties:
+ >
+ > `let httpCodesArray = [Int](httpStatusCodes.keys)`
 
 
 ## DO-CATCH
@@ -891,15 +946,15 @@ See the following:
   .removeAll()   // clears all items      .contains(_:)  // returns a Boolean
   .sorted()      // sorts the set         ==             // Boolean, do both sets contain ALL matching elements?
 
-  A.intersection(B)      // returns a set containing elements common to A and B
-  A.union(B)             // returns a set containing all members of A and B
-  A.subtracting(B)       // returns A, minus any elements that also exist in B
-  A.symmetricDifference  // returns the elements from both A and B that don’t have matches
-  A.isSubset(B)          // returns Boolean, do all elements of A exist in B?
+  A.intersection(B)         // returns a set containing elements common to A and B
+  A.union(B)                // returns a set containing all members of A and B
+  A.subtracting(B)          // returns A, minus any elements that also exist in B
+  A.symmetricDifference(B)  // returns the elements from both A and B that don’t have matches
+  A.isSubset(B)             // returns Boolean, do all elements of A exist in B?
   A.isSuperset(B)
-  A.isStrictSubset(B)    // like isSubset(of:) but only returns true if A is a subset of B *and* A != B
-  A.isStrictSuperset(B)  //
-  A.isDisjoint(B)        // returns true if A has no matching elements with B
+  A.isStrictSubset(B)       // like isSubset(of:) but only returns true if A is a subset of B *and* A != B
+  A.isStrictSuperset(B)
+  A.isDisjoint(B)           // returns true if A has no matching elements with B
 ```
 
   For an example:

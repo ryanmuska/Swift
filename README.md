@@ -70,6 +70,8 @@ This document will be updated regularly as I continue to work through different 
 
   Arrays can be added together to create bigger arrays.
 
+  Access elements with `[x]` bracket notation, where `x` is a valid `index`.
+
  * **EMPTY - EXPLICIT**
  
     Data type **_cannot_** be inferred - requires () parens
@@ -121,6 +123,21 @@ This document will be updated regularly as I continue to work through different 
     .append()    // same as: arr += value(s)      [x]             // a single subscript, x
     [a...b]      // range of subscripts           .insert(_:at:)  // insert a value at a specified index
     .remove(at:) // remove item at index          .removeLast()   // shorthand to skip checking an array’s count
+  ```
+    > **NOTE**: the `.insert(_:at:)` method adjusts the contents of the array, it does not replace a value
+    > **NOTE**: the `.remove(at:)` method removes the item at the specified `index` *and returns it*, but if you’re not planning on using it, you can ignore this fact
+
+ * **ITERATION**
+
+  If you only need the values, use a simple `for-in` loop.
+
+  If you need both the value *and* its index, use a `for-in` loop with the `.enumerated()` method 
+  which returns a tuple with named properties in the form of `(index, value)`.
+
+  ```swift
+    for (index, value) in myArray.enumerated() {
+      print(“Item #\(index + 1) is \(value).”)
+    }
   ```
 
 ## ASSERTIONS

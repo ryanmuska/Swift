@@ -465,6 +465,11 @@ See the following:
   for statusCode in httpStatusCodes.keys { ... }
 
   for statusCodeMsg in httpStatusCodes.values { ... }
+
+  // if you require sorted values:
+  for statusCode in httpStatusCodes.keys.sorted() { ... }
+
+  for statusCode in httpStatusCodes.values.sorted() { ... }
 ```
 
  > **NOTE**: You might use a dictionary with an API that requires an array. In that case, you can 

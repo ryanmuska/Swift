@@ -40,6 +40,7 @@ This document will be updated regularly as I continue to work through different 
 [Preconditions](#preconditions)</br>
 [Protocols](#protocols)</br>
 [Repeat-While](#repeat-while)</br>
+[Sets](#sets)</br>
 [Strings](#strings)</br>
 [Structures](#structures)</br>
 [Switch](#switch)</br>
@@ -124,6 +125,7 @@ This document will be updated regularly as I continue to work through different 
     [a...b]      // range of subscripts           .insert(_:at:)  // insert a value at a specified index
     .remove(at:) // remove item at index          .removeLast()   // shorthand to skip checking an array’s count
   ```
+
     > **NOTE**: the `.insert(_:at:)` method adjusts the contents of the array, it does not replace a value
     > **NOTE**: the `.remove(at:)` method removes the item at the specified `index` *and returns it*, but if you’re not planning on using it, you can ignore this fact
 
@@ -360,6 +362,9 @@ See the following:
 
 
 ## DICTIONARIES
+
+  The data type for the `key` must be hashable. If you intend to use a user-defined type as a dictionary key,
+  you must implement the `Hashable` protocol.
 
 * **EMPTY**
 
@@ -843,6 +848,84 @@ See the following:
         // do some stuff
     } while condition
 ```
+
+
+## SETS
+
+  Store an unordered set of *unique* values.</br>
+  Use a set instead of an array when the order doesn’t matter and you want to be sure that any given item can
+  only appear once.
+
+  Do not have a shorthand form like arrays, and thus must be declared as `Set<SomeType>()`
+
+  Contains all the member functions/properties you would expect of a typical unordered data structure:
+
+* **EMPTY**
+
+```swift
+ var letters = Set<Character>()
+```
+
+* **PREFILLED, EXPLICIT** (array initializer)
+
+```swift
+  var fruits: Set<String> = [“manzana”, “naranja”, “banano”]
+```
+
+* **PREFILLED, INFERRED** (array initializer)
+
+```swift
+  var animales: Set = [“perro”, “gato”, “araña”, “pájaro”]
+
+  // here, the type of the Set is inferred, but you still must explicitly state that it’s a Set
+```
+
+ > **NOTE**: You can empty a set using the inferred syntax: `fruits = []` would cause fruits to be empty,
+ > but still of type `Set<String>`
+
+* **COMMON PROPERTIES AND METHODS**
+
+```swift
+  .isEmpty       // property              .insert(_:)    // no index, since it’s unordered
+  .count         // property              .remove(_:)    // returns either the item or nil
+  .removeAll()   // clears all items      .contains(_:)  // returns a Boolean
+  .sorted()      // sorts the set         ==             // Boolean, do both sets contain ALL matching elements?
+
+  A.intersection(B)      // returns a set containing elements common to A and B
+  A.union(B)             // returns a set containing all members of A and B
+  A.subtracting(B)       // returns A, minus any elements that also exist in B
+  A.symmetricDifference  // returns the elements from both A and B that don’t have matches
+  A.isSubset(B)          // returns Boolean, do all elements of A exist in B?
+  A.isSuperset(B)
+  A.isStrictSubset(B)    // like isSubset(of:) but only returns true if A is a subset of B *and* A != B
+  A.isStrictSuperset(B)  //
+  A.isDisjoint(B)        // returns true if A has no matching elements with B
+```
+
+  For an example:
+
+```swift
+  var movieTypes: Set<String> = [“Action”, “Comedy”, “Romance”]
+
+  if let genre = removedType.remove(“Romance”) {
+    print(“\(removedType) movies aren’t usually hilarious.”)
+  }
+  else {
+    print(“I don’t watch romance novels.”)
+  }
+```
+
+* **ITERATION**
+
+  For simple iteration, use a simple `for-in` loop. If you need the values in order, use the `.sorted()`
+  method:
+
+```swift
+  var scores: Set<Int> = [77, 80, 55, 88, 29, 11]
+
+  for score in scores.sorted() { ... }
+```
+
 
 
 ## STRINGS

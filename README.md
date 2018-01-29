@@ -681,6 +681,33 @@ See the following:
     for i in 0...10 { . . . }   // 0 to 10
 ```
 
+* **On a range** (where you don't actually use the value, but repeat an operation `N` times
+```swift
+    let iterations = 10;
+    let base = 3;
+    var result = 1;
+
+    for _ in 1...iterations {    // repeat the operation `N` times, where `N = iterations` here.
+      result *= base;            // the `_` underscore effectively ignores the index and just causes
+    }                            // this `for-in` loop to act as a repeater
+```
+
+* **On a range** (using `stride(from:to:by:)` as an incrementer)
+```swift
+     for index in stride(from: 0, to: 100, by: 2) {
+       print(\(index));                              // print the even values from 0 to 100
+     }
+```
+
+  > **NOTE**: Also available, `stride(from:through:by:)` for non-inclusive ranges.
+
+* **On a `dicionary`** (decomposing the entries into `tuple`s
+```swift
+  for (statusCode, statusMessage) in httpStatusCodes {
+    // do something with \(statusCode) and \(statusMessage)
+  }
+```
+
 
 ## FUNCTIONS
 
